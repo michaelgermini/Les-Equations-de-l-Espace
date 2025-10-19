@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📐 Formules et Calculs - Les Équations de l'Espace</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <nav class="sidebar">
+<div class="logo">
+<h2>📖 Les Équations de l'Espace</h2>
+<p class="subtitle">L'Héritage de Katherine Johnson</p>
+</div>
+<ul class="menu">
+  <li><a href="index.html" >🏠 Introduction</a></li>
+  <li><a href="chapitre-1.html" >Chapitre 1: L'intelligence en orbite</a></li>
+  <li><a href="chapitre-2.html" >Chapitre 2: Le langage des trajectoires</a></li>
+  <li><a href="chapitre-3.html" >Chapitre 3: Le calcul du vol suborbital</a></li>
+  <li><a href="chapitre-4.html" >Chapitre 4: La géométrie de l'espace</a></li>
+  <li><a href="chapitre-5.html" >Chapitre 5: Le vol orbital de John Glenn</a></li>
+  <li><a href="chapitre-6.html" >Chapitre 6: Les mathématiques de la Lune</a></li>
+  <li><a href="chapitre-7.html" >Chapitre 7: Les équations du retour sur Terre</a></li>
+  <li><a href="chapitre-8.html" >Chapitre 8: De la feuille au cosmos</a></li>
+  <li><a href="chapitre-9.html" >Chapitre 9: Héritage et transmission</a></li>
+  <li><a href="annexes.html" >📚 Annexes</a></li>
+  <li><a href="formules.html" class="active">📐 Formules et Calculs</a></li>
+</ul>
+<div class="footer">
+<p>© 2025 Michael Germini</p>
+<p><a href="https://github.com/michaelgermini/Les-Equations-de-l-Espace" target="_blank">GitHub</a></p>
+</div>
+</nav>
+
+    <main class="content">
+        <article>
+            <h1>Annexes : Formules et Calculs Détaillés</h1>
+
+<h2>📐 ANNEXE A : Formules Fondamentales des Mathématiques Spatiales</h2>
+
+<h3>A.1 Lois de Kepler et Mécanique Céleste</h3>
+
+<h4>Loi des aires (Deuxième loi de Kepler)</h4>
+<div class="math-block">\[
+<p>\frac{dA}{dt} = \frac{1}{2} r^2 \dot{\theta} = \frac{\sqrt{\mu p}}{2}
+\]</div>
+Où :
+<ul><li><span class="math-inline">\(A\)</span> = aire balayée</li>
+<li><span class="math-inline">\(r, \theta\)</span> = coordonnées polaires</li>
+<li><span class="math-inline">\(\mu = GM\)</span> = paramètre gravitationnel</li>
+<li><span class="math-inline">\(p\)</span> = paramètre orbital</li>
+</ul>
+<h4>Loi des périodes (Troisième loi de Kepler)</h4>
+<div class="math-block">\[
+T^2 = \frac{4\pi^2}{GM} a^3
+\]</div>
+<strong>Dérivation pas à pas :</strong>
+
+<strong>Étape 1 :</strong> De la loi des aires, aire totale d'une orbite circulaire :
+<div class="math-block">\[
+A = \pi a^2
+\]</div>
+
+<strong>Étape 2 :</strong> Vitesse aréolaire constante :
+<div class="math-block">\[
+\frac{dA}{dt} = \frac{\sqrt{\mu p}}{2} = \frac{\sqrt{\mu a}}{2} \quad (\text{car } p = a \text{ pour cercle})
+\]</div>
+
+<strong>Étape 3 :</strong> Aire totale :
+<div class="math-block">\[
+A = \frac{\sqrt{\mu a}}{2} \times T
+\]</div>
+
+<strong>Étape 4 :</strong> Substitution :
+<div class="math-block">\[
+\pi a^2 = \frac{\sqrt{\mu a}}{2} T
+\]</div>
+
+<strong>Étape 5 :</strong> Résolution pour T² :
+<div class="math-block">\[
+T^2 = \frac{4\pi^2 a^3}{\mu}
+\]</div>
+
+<h4>Équation de Kepler (orbites elliptiques)</h4>
+<div class="math-block">\[
+M = E - e \sin E
+\]</div>
+Où :
+<ul><li><span class="math-inline">\(M\)</span> = anomalie moyenne</li>
+<li><span class="math-inline">\(E\)</span> = anomalie excentrique</li>
+<li><span class="math-inline">\(e\)</span> = excentricité</li>
+</ul>
+<strong>Résolution itérative (méthode de Newton) :</strong>
+
+<strong>Étape 1 :</strong> Estimation initiale <span class="math-inline">\(E_0 = M\)</span>
+
+<strong>Étape 2 :</strong> Itération :
+<div class="math-block">\[
+E_{n+1} = E_n - \frac{E_n - e \sin E_n - M}{1 - e \cos E_n}
+\]</div>
+
+<strong>Étape 3 :</strong> Convergence : |E_{n+1} - E_n| < 10^{-8}
+
+<h3>A.2 Systèmes de Coordonnées Spatiales</h3>
+
+<h4>Transformation cartésien → sphérique</h4>
+<div class="math-block">\[
+\begin{align}
+r &= \sqrt{x^2 + y^2 + z^2} \\
+\theta &= \cos^{-1}\left(\frac{z}{r}\right) \\
+\phi &= \tan^{-1}\left(\frac{y}{x}\right)
+\end{align}
+\]</div>
+
+<h4>Coordonnées orbitales (éléments kepleriens)</h4>
+<div class="math-block">\[
+\begin{align}
+a &= \text{demi-grand axe} \\
+e &= \text{excentricité} \\
+i &= \text{inclinaison} \\
+\Omega &= \text{longitude du nœud ascendant} \\
+\omega &= \text{argument du périastre} \\
+\nu &= \text{anomalie vraie}
+\end{align}
+\]</div>
+
+<h3>A.3 Équations du Mouvement Orbital</h3>
+
+<h4>Équation de Lagrange (forme polaire)</h4>
+<div class="math-block">\[
+\frac{d^2 u}{d\theta^2} + u = -\frac{\mu}{h^2}
+\]</div>
+Où :
+<ul><li><span class="math-inline">\(u = 1/r\)</span> = variable auxiliaire</li>
+<li><span class="math-inline">\(h\)</span> = moment cinétique spécifique</li>
+</ul>
+<h4>Équation de trajectoire en coordonnées polaires</h4>
+<div class="math-block">\[
+\frac{d^2}{dr^2}\left(\frac{1}{r}\right) + \frac{1}{r} = -\frac{\mu}{h^2}
+\]</div>
+
+<h2>🔢 ANNEXE B : Calculs Numériques Détaillés</h2>
+
+<h3>B.1 Méthode d'Euler pour l'Intégration Numérique</h3>
+
+<strong>Problème :</strong> Résoudre <span class="math-inline">\(\frac{dv}{dt} = a(t)\)</span> avec v(0) = v₀
+
+<strong>Algorithme pas à pas :</strong>
+
+<strong>Étape 1 :</strong> Initialisation
+<ul><li>t = 0, v = v₀</li>
+<li>Δt = pas de temps (typiquement 0.1-1.0 s)</li>
+</ul>
+<strong>Étape 2 :</strong> Calcul de l'accélération
+<ul><li>a = f(t, v) [loi de Newton, gravitation, etc.]</li>
+</ul>
+<strong>Étape 3 :</strong> Mise à jour de la vitesse
+<div class="math-block">\[
+v_{n+1} = v_n + a_n \Delta t
+\]</div>
+
+<strong>Étape 4 :</strong> Mise à jour de la position
+<div class="math-block">\[
+x_{n+1} = x_n + v_n \Delta t
+\]</div>
+
+<strong>Étape 5 :</strong> Incrémentation du temps
+<ul><li>t = t + Δt</li>
+</ul>
+<strong>Étape 6 :</strong> Répétition jusqu'à t_final
+
+<strong>Erreur d'approximation :</strong> O(Δt) - diminue avec Δt plus petit
+
+<h3>B.2 Calcul du Δv pour Transferts Orbitaux</h3>
+
+<strong>Exemple : Apollo 11 (Terre → Lune)</strong>
+
+<strong>Données :</strong>
+<ul><li>r₁ = 6,571 km (orbite terrestre basse)</li>
+<li>r₂ = 384,400 km (orbite lunaire)</li>
+<li>μ = 3.986 × 10¹⁴ m³/s²</li>
+</ul>
+<strong>Calcul du demi-grand axe de transfert :</strong>
+<div class="math-block">\[
+a_t = \frac{r_1 + r_2}{2} = \frac{6571000 + 384400000}{2} = 195485500 \text{ m}
+\]</div>
+
+<strong>Vitesses de transfert :</strong>
+<div class="math-block">\[
+\begin{align}
+v_1 &= \sqrt{\mu \left( \frac{2}{r_1} - \frac{1}{a_t} \right)} = \sqrt{3.986e14 \left( \frac{2}{6.571e6} - \frac{1}{1.954855e8} \right)} = 10840 \text{ m/s} \\
+v_2 &= \sqrt{\mu \left( \frac{2}{r_2} - \frac{1}{a_t} \right)} = \sqrt{3.986e14 \left( \frac{2}{3.844e8} - \frac{1}{1.954855e8} \right)} = 2380 \text{ m/s}
+\end{align}
+\]</div>
+
+<strong>Δv total :</strong>
+<div class="math-block">\[
+\Delta v = |v_1 - v_{\text{circulaire TE}}| + |v_2 - v_{\text{circulaire Lune}}| \approx 3150 \text{ m/s}
+\]</div>
+
+<h3>B.3 Correction pour la Rotation Terrestre</h3>
+
+<strong>Effet Coriolis sur une trajectoire :</strong>
+
+<strong>Force de Coriolis :</strong>
+<div class="math-block">\[
+\vec{F}_c = -2m \vec{\omega} \times \vec{v}
+\]</div>
+
+<strong>Déviation latérale pour un missile :</strong>
+<div class="math-block">\[
+\Delta x = \frac{1}{2} \omega \cos \phi \ t^2 \ v
+\]</div>
+
+<strong>Exemple numérique :</strong>
+<ul><li>ω = 7.29 × 10^{-5} rad/s</li>
+<li>φ = 28.5° (Cap Canaveral)</li>
+<li>v = 2500 m/s (vitesse missile)</li>
+<li>t = 300 s (durée de vol)</li>
+</ul>
+<strong>Calcul :</strong>
+<div class="math-block">\[
+\Delta x = \frac{1}{2} \times 7.29e-5 \times \cos(28.5°) \times 300^2 \times 2500 \approx 520 \text{ m}
+\]</div>
+
+<h2>📊 ANNEXE C : Tables de Données et Constantes</h2>
+
+<h3>C.1 Constantes Physiques Utiles</h3>
+
+| Constante | Valeur | Unité | Utilisation |
+|-----------|--------|-------|-------------|
+| <strong>G</strong> | 6.67430 × 10^{-11} | m³ kg⁻¹ s⁻² | Constante gravitationnelle |
+| <strong>M_⊕</strong> | 5.972 × 10^{24} | kg | Masse de la Terre |
+| <strong>R_⊕</strong> | 6.371 × 10^6 | m | Rayon terrestre équatorial |
+| <strong>ω_⊕</strong> | 7.292 × 10^{-5} | rad/s | Vitesse angulaire terrestre |
+| <strong>μ_⊕</strong> | 3.986 × 10^{14} | m³/s² | Paramètre gravitationnel terrestre |</p>
+
+<h3>C.2 Données Orbitales des Missions Historiques</h3>
+
+<p>| Mission | Altitude (km) | Période (min) | Vitesse (km/s) | Δv (m/s) |
+|---------|---------------|---------------|----------------|-----------|
+| <strong>Mercury-Redstone 3</strong> (Shepard) | 190 | 90.2 | 7.79 | 0 |
+| <strong>Mercury-Atlas 6</strong> (Glenn) | 260 | 88.5 | 7.84 | 50 |
+| <strong>Apollo 11</strong> (Lune) | 190 → 384400 | 90.2 → 64800 | 7.79 → 0.97 | 3150 |
+| <strong>ISS</strong> | 408 | 92.6 | 7.66 | 0 |</p>
+
+<h3>C.3 Exemples d'Orbites Elliptiques</h3>
+
+<p>| Satellite | a (km) | e | Période | Périgée (km) | Apogée (km) |
+|-----------|--------|---|---------|--------------|-------------|
+| <strong>GPS</strong> | 26560 | 0.01 | 12h | 20180 | 32940 |
+| <strong>Hubble</strong> | 6930 | 0.0002 | 97 min | 586 | 620 |
+| <strong>Molniya</strong> | 26554 | 0.74 | 12h | 508 | 39787 |</p>
+
+<h2>🧩 ANNEXE D : Exercices et Problèmes Résolus</h2>
+
+<h3>D.1 Exercices de Niveau Débutant</h3>
+
+<strong>Exercice 1 : Calcul de vitesse orbitale</strong>
+<p>Une station spatiale orbite à 400 km d'altitude. Calculez sa vitesse.</p>
+
+<strong>Solution :</strong>
+<div class="math-block">\[
+<p>\begin{align}
+r &= 6371 + 400 = 6771 \text{ km} = 6.771 \times 10^6 \text{ m} \\
+v &= \sqrt{\frac{GM}{r}} = \sqrt{\frac{3.986 \times 10^{14}}{6.771 \times 10^6}} = 7660 \text{ m/s} = 7.66 \text{ km/s}
+\end{align}
+\]</div>
+
+<strong>Exercice 2 : Période orbitale</strong>
+Calculez la période d'un satellite à 2000 km d'altitude.</p>
+
+<strong>Solution :</strong>
+<div class="math-block">\[
+<p>\begin{align}
+r &= 6371 + 2000 = 8371 \text{ km} = 8.371 \times 10^6 \text{ m} \\
+T &= 2\pi \sqrt{\frac{r^3}{GM}} = 2\pi \sqrt{\frac{(8.371e6)^3}{3.986e14}} = 7640 \text{ s} = 127 \text{ min}
+\end{align}
+\]</div>
+
+<h3>D.2 Exercices de Niveau Intermédiaire</h3>
+
+<strong>Exercice 3 : Transfert de Hohmann</strong>
+Calculez le Δv nécessaire pour aller de l'orbite terrestre basse (200 km) à l'orbite géostationnaire (35786 km).</p>
+
+<strong>Solution :</strong>
+<div class="math-block">\[
+<p>\begin{align}
+r_1 &= 6371 + 200 = 6571 \text{ km} \\
+r_2 &= 42164 \text{ km} \\
+a_t &= \frac{6571 + 42164}{2} = 24367.5 \text{ km} \\
+v_1 &= \sqrt{3.986e14 \left( \frac{2}{6.571e6} - \frac{1}{2.43675e7} \right)} = 7790 \text{ m/s} \\
+v_{\text{circ1}} &= \sqrt{\frac{3.986e14}{6.571e6}} = 7790 \text{ m/s} \\
+v_2 &= \sqrt{3.986e14 \left( \frac{2}{4.2164e7} - \frac{1}{2.43675e7} \right)} = 1920 \text{ m/s} \\
+v_{\text{circ2}} &= \sqrt{\frac{3.986e14}{4.2164e7}} = 3070 \text{ m/s} \\
+\Delta v &= |v_1 - v_{\text{circ1}}| + |v_2 - v_{\text{circ2}}| = 0 + 1150 = 1150 \text{ m/s}
+\end{align}
+\]</div>
+
+<h3>D.3 Exercices de Niveau Avancé</h3>
+
+<strong>Exercice 4 : Équation de Kepler</strong>
+Résolvez M = 2.5 rad pour une orbite d'excentricité e = 0.1.</p>
+
+<strong>Solution itérative :</strong>
+<div class="math-block">\[
+<p>\begin{align}
+E_0 &= 2.5 \\
+E_1 &= 2.5 - \frac{2.5 - 0.1 \sin 2.5 - 2.5}{1 - 0.1 \cos 2.5} = 2.5 - \frac{0}{0.884} = 2.5 \\
+E_2 &= 2.5 \text{ (convergé)}
+\end{align}
+\]</div>
+
+<strong>Exercice 5 : Rentrée atmosphérique</strong>
+Calculez la décélération maximale lors de la rentrée Apollo.</p>
+
+<strong>Données :</strong> v = 11 km/s, ρ = 0.001 kg/m³, C_d = 1.5, A = 12 m², m = 5500 kg
+
+<strong>Solution :</strong>
+<div class="math-block">\[
+<p>\begin{align}
+F_d &= \frac{1}{2} \rho v^2 C_d A = \frac{1}{2} \times 0.001 \times 121000000 \times 1.5 \times 12 = 1,089,000 \text{ N} \\
+a &= \frac{F_d}{m} = \frac{1,089,000}{5500} = 198 \text{ m/s}^2 = 20.2g
+\end{align}
+\]</div>
+
+<h2>📈 ANNEXE E : Index des Équations par Complexité</h2>
+
+| Complexité | Équation | Chapitre | Utilisation |
+|------------|----------|----------|-------------|
+| <strong>Basique</strong> | <span class="math-inline">\(v = \sqrt{GM/r}\)</span> | 2 | Vitesse orbitale circulaire |
+| <strong>Intermédiaire</strong> | <span class="math-inline">\(T = 2\pi \sqrt{a^3/GM}\)</span> | 2 | Loi des périodes |
+| <strong>Avancée</strong> | <span class="math-inline">\(M = E - e \sin E\)</span> | 2 | Équation de Kepler |
+| <strong>Expert</strong> | <span class="math-inline">\(\vec{a} = -\frac{GM}{r^2} \hat{r} + \vec{a}_{ext}\)</span> | 3 | Équation du mouvement 3D |</p>
+
+<strong>Légende de complexité :</strong>
+<ul><li><strong>Basique</strong> : Algèbre simple</li>
+<li><strong>Intermédiaire</strong> : Trigonométrie, logarithmes</li>
+<li><strong>Avancée</strong> : Équations différentielles</li>
+<li><strong>Expert</strong> : Systèmes vectoriels, calcul tensoriel</li>
+</ul>
+        </article>
+    </main>
+</body>
+</html>

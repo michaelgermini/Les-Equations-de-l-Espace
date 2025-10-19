@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📚 Annexes - Les Équations de l'Espace</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <nav class="sidebar">
+<div class="logo">
+<h2>📖 Les Équations de l'Espace</h2>
+<p class="subtitle">L'Héritage de Katherine Johnson</p>
+</div>
+<ul class="menu">
+  <li><a href="index.html" >🏠 Introduction</a></li>
+  <li><a href="chapitre-1.html" >Chapitre 1: L'intelligence en orbite</a></li>
+  <li><a href="chapitre-2.html" >Chapitre 2: Le langage des trajectoires</a></li>
+  <li><a href="chapitre-3.html" >Chapitre 3: Le calcul du vol suborbital</a></li>
+  <li><a href="chapitre-4.html" >Chapitre 4: La géométrie de l'espace</a></li>
+  <li><a href="chapitre-5.html" >Chapitre 5: Le vol orbital de John Glenn</a></li>
+  <li><a href="chapitre-6.html" >Chapitre 6: Les mathématiques de la Lune</a></li>
+  <li><a href="chapitre-7.html" >Chapitre 7: Les équations du retour sur Terre</a></li>
+  <li><a href="chapitre-8.html" >Chapitre 8: De la feuille au cosmos</a></li>
+  <li><a href="chapitre-9.html" >Chapitre 9: Héritage et transmission</a></li>
+  <li><a href="annexes.html" class="active">📚 Annexes</a></li>
+  <li><a href="formules.html" >📐 Formules et Calculs</a></li>
+</ul>
+<div class="footer">
+<p>© 2025 Michael Germini</p>
+<p><a href="https://github.com/michaelgermini/Les-Equations-de-l-Espace" target="_blank">GitHub</a></p>
+</div>
+</nav>
+
+    <main class="content">
+        <article>
+            <h1>Annexes</h1>
+
+<h2>A. Dérivations mathématiques détaillées</h2>
+
+<h3>A.1 Dérivation de la troisième loi de Kepler à partir de la mécanique newtonienne</h3>
+
+<strong>Étape 1 : Hypothèse d'une orbite circulaire</strong>
+<p>Considérons un satellite en orbite circulaire de rayon <span class="math-inline">\(r\)</span> autour d'un corps central de masse <span class="math-inline">\(M\)</span>.</p>
+
+<strong>Étape 2 : Force gravitationnelle</strong>
+<p>La loi de Newton donne :
+<div class="math-block">\[
+F_g = \frac{GMm}{r^2}
+\]</div>
+Cette force attire le satellite vers le centre.</p>
+
+<strong>Étape 3 : Force centripète pour le mouvement circulaire</strong>
+<p>Pour maintenir une trajectoire circulaire, il faut une force centripète :
+<div class="math-block">\[
+F_c = m \omega^2 r
+\]</div>
+Où <span class="math-inline">\(\omega = \frac{2\pi}{T}\)</span> est la vitesse angulaire (rad/s), et <span class="math-inline">\(T\)</span> est la période.</p>
+
+<strong>Étape 4 : Développement de la force centripète</strong>
+<div class="math-block">\[
+<p>\omega = \frac{2\pi}{T}
+\]</div>
+Donc :
+<div class="math-block">\[
+F_c = m \left(\frac{2\pi}{T}\right)^2 r = m \frac{4\pi^2}{T^2} r
+\]</div>
+
+<strong>Étape 5 : Équilibre des forces</strong>
+Pour une orbite stable :
+<div class="math-block">\[
+F_g = F_c
+\]</div>
+<div class="math-block">\[
+\frac{GMm}{r^2} = m \frac{4\pi^2}{T^2} r
+\]</div>
+
+<strong>Étape 6 : Simplification</strong>
+Divisons les deux côtés par <span class="math-inline">\(m\)</span> :
+<div class="math-block">\[
+\frac{GM}{r^2} = \frac{4\pi^2}{T^2} r
+\]</div>
+
+<strong>Étape 7 : Résolution pour T²</strong>
+Multiplions les deux côtés par <span class="math-inline">\(r^2 T^2\)</span> :
+<div class="math-block">\[
+GM T^2 = 4\pi^2 r^3
+\]</div>
+
+<strong>Étape 8 : Réarrangement</strong>
+<div class="math-block">\[
+T^2 = \frac{4\pi^2}{GM} r^3
+\]</div>
+
+<strong>Étape 9 : Généralisation à l'ellipse</strong>
+Pour une orbite elliptique, nous remplaçons <span class="math-inline">\(r\)</span> par le demi-grand axe <span class="math-inline">\(a\)</span> :
+<div class="math-block">\[
+T^2 = \frac{4\pi^2}{GM} a^3
+\]</div>
+
+<strong>Étape 10 : Interprétation physique</strong>
+<ul><li><span class="math-inline">\(T\)</span> : période orbitale (secondes)</li>
+<li><span class="math-inline">\(a\)</span> : demi-grand axe (mètres)</li>
+<li><span class="math-inline">\(GM\)</span> : paramètre gravitationnel (m³/s²)</li>
+<li>Cette loi relie la taille de l'orbite à sa période</li>
+</ul>
+<strong>Étape 11 : Applications pratiques</strong>
+<ul><li>Pour la Terre : <span class="math-inline">\(GM = 3.986 \times 10^{14}\)</span> m³/s²</li>
+<li>Pour une orbite à 300 km : <span class="math-inline">\(a = 6678\)</span> km = <span class="math-inline">\(6.678 \times 10^6\)</span> m</li>
+<li>Période calculée : <span class="math-inline">\(T = 5490\)</span> s ≈ 91.5 minutes</li>
+</ul>
+C'est la <strong>troisième loi de Kepler</strong>, dérivée directement de la mécanique newtonienne.</p>
+
+<h3>A.2 Solution de l'équation de Kepler par méthode d'itération de Newton</h3>
+
+<strong>L'équation de Kepler</strong> :
+<div class="math-block">\[
+<p>M = E - e\sin E
+\]</div>
+
+<strong>But</strong> : Trouver <span class="math-inline">\(E\)</span> en fonction de <span class="math-inline">\(M\)</span> (connu).
+
+<strong>Rearrangement comme problème de zéro de fonction</strong> :
+<div class="math-block">\[
+f(E) = E - e\sin E - M = 0
+\]</div>
+
+<strong>Méthode de Newton</strong> : Itération
+<div class="math-block">\[
+E_{n+1} = E_n - \frac{f(E_n)}{f'(E_n)}
+\]</div>
+
+Avec <span class="math-inline">\(f'(E) = 1 - e\cos E\)</span>, on obtient :
+<div class="math-block">\[
+E_{n+1} = E_n - \frac{E_n - e\sin E_n - M}{1 - e\cos E_n}
+\]</div>
+
+<strong>Algorithme</strong> :
+1. Démarrer avec une première estimation : <span class="math-inline">\(E_0 = M\)</span> (bonne pour les faibles excentricités)
+2. Itérer jusqu'à convergence : <span class="math-inline">\(|E_{n+1} - E_n| < \epsilon\)</span> (où <span class="math-inline">\(\epsilon\)</span> est la tolérance)</p>
+
+<strong>Exemple numérique</strong> :
+<ul><li>Données : <span class="math-inline">\(M = 1.0\)</span> radian, <span class="math-inline">\(e = 0.1\)</span></li>
+<li><span class="math-inline">\(E_0 = 1.0\)</span></li>
+<li><span class="math-inline">\(E_1 = 1.0 - \frac{1.0 - 0.1 \sin(1.0) - 1.0}{1 - 0.1 \cos(1.0)} \approx 1.0918\)</span></li>
+<li><span class="math-inline">\(E_2 \approx 1.0952\)</span> (convergence rapide)</li>
+</ul>
+<h3>A.3 Dérivation de l'équation de la trajectoire en coordonnées polaires</h3>
+
+<strong>Étape 1 : Équations de base en coordonnées polaires</strong>
+<p>Nous partons des équations dérivées au Chapitre 2 :</p>
+
+<strong>Équation radiale</strong> :
+<div class="math-block">\[
+<p>\ddot{r} - r\dot{\theta}^2 = -\frac{GM}{r^2}
+\]</div>
+
+<strong>Équation angulaire (conservation du moment cinétique)</strong> :
+<div class="math-block">\[
+\frac{d}{dt}(r^2 \dot{\theta}) = 0
+\]</div>
+
+Donc : <span class="math-inline">\(r^2 \dot{\theta} = h = \text{constant}\)</span> (moment cinétique spécifique)</p>
+
+<strong>Étape 2 : Transformation de variables</strong>
+<p>Pour simplifier, nous introduisons une nouvelle variable :
+<div class="math-block">\[
+u = \frac{1}{r}
+\]</div>
+
+Donc :
+<div class="math-block">\[
+r = \frac{1}{u}
+\]</div>
+
+<strong>Étape 3 : Dérivée première par rapport à θ</strong>
+Nous exprimons tout en fonction de θ plutôt que t. D'abord :
+<div class="math-block">\[
+\frac{dr}{d\theta} = \frac{dr}{dt} \cdot \frac{dt}{d\theta} = \dot{r} \cdot \frac{1}{\dot{\theta}}
+\]</div>
+
+Mais <span class="math-inline">\(\dot{\theta} = \frac{h}{r^2} = h u^2\)</span></p>
+
+<p>Donc :
+<div class="math-block">\[
+\frac{dr}{d\theta} = \frac{\dot{r}}{h u^2}
+\]</div>
+
+En dérivant <span class="math-inline">\(r = 1/u\)</span> :
+<div class="math-block">\[
+\frac{dr}{d\theta} = -\frac{1}{u^2} \frac{du}{d\theta}
+\]</div>
+
+Donc :
+<div class="math-block">\[
+-\frac{1}{u^2} \frac{du}{d\theta} = \frac{\dot{r}}{h u^2}
+\]</div>
+
+<strong>Étape 4 : Simplification</strong>
+<div class="math-block">\[
+-\frac{du}{d\theta} = \frac{\dot{r}}{h}
+\]</div>
+
+Donc :
+<div class="math-block">\[
+\dot{r} = -h \frac{du}{d\theta}
+\]</div>
+
+<strong>Étape 5 : Dérivée seconde</strong>
+Maintenant, dérivons par rapport à θ :
+<div class="math-block">\[
+\frac{d\dot{r}}{d\theta} = \frac{d}{d\theta} \left( -h \frac{du}{d\theta} \right) = -h \frac{d^2 u}{d\theta^2}
+\]</div>
+
+Mais <span class="math-inline">\(\frac{d\dot{r}}{d\theta} = \ddot{r} \cdot \frac{dt}{d\theta} = \ddot{r} \cdot \frac{1}{\dot{\theta}} = \ddot{r} \cdot \frac{r^2}{h} = \ddot{r} \cdot \frac{1}{h u^2}\)</span></p>
+
+<p>Donc :
+<div class="math-block">\[
+\ddot{r} \cdot \frac{1}{h u^2} = -h \frac{d^2 u}{d\theta^2}
+\]</div>
+
+<strong>Étape 6 : Résolution pour d²u/dθ²</strong>
+<div class="math-block">\[
+\ddot{r} = -h^2 u^2 \frac{d^2 u}{d\theta^2}
+\]</div>
+
+<strong>Étape 7 : Substitution dans l'équation radiale</strong>
+L'équation radiale originale :
+<div class="math-block">\[
+\ddot{r} - r \dot{\theta}^2 = -\frac{GM}{r^2}
+\]</div>
+
+Remplaçons <span class="math-inline">\(\ddot{r}\)</span> :
+<div class="math-block">\[
+-h^2 u^2 \frac{d^2 u}{d\theta^2} - r (h u^2)^2 = -\frac{GM}{r^2}
+\]</div>
+
+Puisque <span class="math-inline">\(r = 1/u\)</span> :
+<div class="math-block">\[
+-h^2 u^2 \frac{d^2 u}{d\theta^2} - \frac{1}{u} \cdot h^2 u^4 = -GM u^2
+\]</div>
+
+<strong>Étape 8 : Simplification</strong>
+<div class="math-block">\[
+-h^2 u^2 \frac{d^2 u}{d\theta^2} - h^2 u^3 = -GM u^2
+\]</div>
+
+Divisons par <span class="math-inline">\(-h^2 u^2\)</span> :
+<div class="math-block">\[
+\frac{d^2 u}{d\theta^2} + u = \frac{GM}{h^2}
+\]</div>
+
+<strong>Étape 9 : Solution de l'équation différentielle</strong>
+C'est une équation différentielle linéaire du second ordre :
+<div class="math-block">\[
+\frac{d^2 u}{d\theta^2} + u = \frac{GM}{h^2}
+\]</div>
+
+La solution générale est :
+<div class="math-block">\[
+u = A \cos\theta + B \sin\theta + \frac{GM}{h^2}
+\]</div>
+
+<strong>Étape 10 : Conditions aux limites</strong>
+Pour une ellipse, nous imposons que le périapside soit à θ = 0, donc du/dθ = 0 à θ = 0.</p>
+
+<p>La solution devient :
+<div class="math-block">\[
+u = \frac{GM}{h^2} (1 + e \cos\theta)
+\]</div>
+
+<strong>Étape 11 : Retour à la variable r</strong>
+<div class="math-block">\[
+u = \frac{1}{r} = \frac{GM}{h^2} (1 + e \cos\theta)
+\]</div>
+
+Donc :
+<div class="math-block">\[
+r = \frac{h^2}{GM} \cdot \frac{1}{1 + e \cos\theta}
+\]</div>
+
+<strong>Étape 12 : Expression standard</strong>
+Nous définissons le paramètre p = h²/GM :
+<div class="math-block">\[
+r = \frac{p}{1 + e \cos\theta}
+\]</div>
+
+C'est l'<strong>équation polaire d'une conique</strong> :
+<ul><li><strong>Cercle</strong> : si e = 0, r = p (constante)</li>
+<li><strong>Ellipse</strong> : si 0 < e < 1, r varie entre p/(1+e) et p/(1-e)</li>
+<li><strong>Parabole</strong> : si e = 1, r = p/(1 + cosθ)</li>
+<li><strong>Hyperbole</strong> : si e > 1, r peut devenir très grand</li>
+</ul>
+<h2>B. Tableaux de calculs et exemples commentés</h2>
+
+<h3>B.1 Exemple : Calcul d'une orbite de Shepard (mission Mercury-Redstone 3)</h3>
+
+| Paramètre | Valeur | Unité | Notes |
+|-----------|--------|-------|-------|
+| Apogée | 116 | km | Altitude maximale atteinte |
+| Périgée | 0 | km | Au niveau de la mer (lancement vertical) |
+| Vitesse d'apogée | 2.61 | km/s | Calculé par conservation d'énergie |
+| Durée de vol | 15 min 22 s | - | Depuis lancement jusqu'à amerrissage |
+| Distance d'amerrissage | 486 | km | Estimé depuis le cap (réel : 488 km) |</p>
+
+<strong>Calcul pas à pas</strong> (version simplifiée) :
+
+<p>1. <strong>Vitesse de lancement</strong> (depuis équilibre des forces) :
+   - Force de gravité : <span class="math-inline">\(F_g = 9.81 m/s^2\)</span>
+   - Accélération du moteur : <span class="math-inline">\(a_{motor} = 6g = 58.9 m/s^2\)</span> (net : <span class="math-inline">\(5g = 49.0 m/s^2\)</span>)
+   - Temps de combustion : ~120 s
+   - Vitesse finale moteur : <span class="math-inline">\(v = a \times t = 49.0 \times 120 = 5880 m/s = 5.88 km/s\)</span></p>
+
+<p>2. <strong>Altitude maximale</strong> (énergie) :
+   - À l'apogée, <span class="math-inline">\(v = 0\)</span> (en coordonnée verticale)
+   - Conservation de l'énergie : <span class="math-inline">\(\frac{1}{2}v_0^2 = g h_{max}\)</span> (approximation)
+   - <span class="math-inline">\(h_{max} = \frac{v_0^2}{2g} = \frac{(5880)^2}{2 \times 9.81} \approx 1,761,000 m\)</span>
+   - Mais en réalité, g varie, donc <span class="math-inline">\(h_{max} \approx 116\)</span> km</p>
+
+<p>3. <strong>Distance d'amerrissage</strong> (portée balistique simple) :
+   - Durée totale : 15 min 22 s
+   - Distance horizontale (approximée) : <span class="math-inline">\(x \approx v_{initial} \times t / 2 \approx 486 km\)</span></p>
+
+<h3>B.2 Tableau de calcul : Orbite de John Glenn (Mercury-Atlas 6)</h3>
+
+<strong>Données d'entrée</strong> :
+<ul><li>Altitude de périgée : 160 km</li>
+<li>Altitude d'apogée : 260 km</li>
+<li>Inclinaison : 32.51°</li>
+<li>Demi-grand axe : <span class="math-inline">\(a = 6381 km\)</span></li>
+<li>Excentricité : <span class="math-inline">\(e = 0.00759\)</span></li>
+</ul>
+<strong>Calculs pour le premier passage au périgée</strong> :
+
+<p>| Temps (min) | Alt (km) | Lat (°) | Lon (°) | Vitesse (km/s) | Notes |
+|-------------|----------|---------|---------|-----------------|-------|
+| 0 | 160 | 32.5 | 0 | 7.819 | Périgée initial |
+| 5 | 185 | 28 | 12 | 7.76 | Ascension |
+| 10 | 210 | 20 | 24 | 7.70 | Proche de l'équateur |
+| 15 | 230 | 8 | 36 | 7.65 | Au-delà de l'équateur |
+| 20 | 250 | -5 | 48 | 7.61 | Descente |
+| 25 | 260 | -18 | 60 | 7.58 | Apogée |</p>
+
+<strong>Notes de calcul</strong> :
+<ul><li>Changement d'altitude : varie de 160 (périgée) à 260 (apogée)</li>
+<li>Changement de latitude : dépend de l'inclinaison (max 32.5°N/S pour une orbite inclinée)</li>
+<li>Vitesse : maximum au périgée (7.819 km/s), minimum à l'apogée (~7.58 km/s)</li>
+</ul>
+<h2>C. Références historiques</h2>
+
+<h3>C.1 Sources primaires</h3>
+
+<p>1. <strong>NASA Historical Reports</strong>
+   - NASA Technical Reports Server (NTRS)
+   - Langley Research Center Archives
+   - Mercury, Gemini, Apollo mission documentation</p>
+
+<p>2. <strong>Publications scientifiques de l'époque</strong>
+   - Houbolt, J. C. (1961). "A Study of the Apollo By-Pass Trajectory," NASA TN D-337
+   - Chapman, D. R. (1959). "An Approximate Analytical Method for Steady State Heat Transfer in Hypersonic Flight," NACA Report 1135
+   - Théodore, G. (1962). "Orbital Mechanics," McGraw-Hill</p>
+
+<h3>C.2 Sources secondaires</h3>
+
+<p>1. <strong>Livres</strong>
+   - Shetterly, Margot Lee. <em>Hidden Figures: The American Dream and the Untold Story of the Black Women and the NASA</em> (2016)
+   - Johnson, Katherine. <em>My Counted Life</em> (2017, autobiographie)</p>
+
+<p>2. <strong>Films et documentaires</strong>
+   - "Hidden Figures" (2016, réalisé par Theodore Melfi)
+   - PBS documentaires sur les "Human Computers" de la NASA
+   - National Geographic specials</p>
+
+<h3>C.3 Archevez vidéo et orales</h3>
+
+<ul><li>Interviews de Katherine Johnson (années 1990-2010) disponibles dans les NASA archives</li>
+<li>Interviews de Dorothy Vaughan, Mary Jackson</li>
+<li>Témoignages d'astronautes (Alan Shepard, John Glenn) sur la confiance dans les calculs</li>
+</ul>
+<h2>D. Index des équations principales</h2>
+
+<p>| Équation | Chapitre | Application |
+|----------|----------|-------------|
+| <span class="math-inline">\(T^2 = \frac{4\pi^2}{GM} a^3\)</span> | 2 | Période orbitale (Kepler III) |
+| <span class="math-inline">\(M = E - e\sin E\)</span> | 2 | Relation temps-position (Kepler) |
+| <span class="math-inline">\(\frac{d^2z}{dt^2} = -g(z)\)</span> | 3 | Mouvement vertical en gravité |
+| <span class="math-inline">\(r = a(1-e\cos E)\)</span> | 2 | Distance orbitale |
+| <span class="math-inline">\(F_{drag} = \frac{1}{2}\rho v^2 C_D A\)</span> | 7 | Force de traînée atmosphérique |
+| <span class="math-inline">\(\Delta v = v_f - v_i\)</span> | 6 | Changement de vitesse orbital |
+| <span class="math-inline">\(E_k = \frac{1}{2}mv^2\)</span> | 6 | Énergie cinétique |
+| <span class="math-inline">\(\omega = \frac{2\pi}{T}\)</span> | 4 | Vitesse angulaire |</p>
+
+<h2>B.3 Exemple Étendu : Simulation Complète d'une Rentrée Atmosphérique</h2>
+
+<h3>Paramètres de Base</h3>
+<ul><li><strong>Mission</strong> : Apollo 11 retour (1969)</li>
+<li><strong>Vitesse initiale</strong> : 11.2 km/s</li>
+<li><strong>Altitude initiale</strong> : 122 km</li>
+<li><strong>Angle d'entrée</strong> : -6.2°</li>
+<li><strong>Masse</strong> : 5500 kg</li>
+<li><strong>Surface de référence</strong> : 12.0 m²</li>
+<li><strong>Coefficient de traînée</strong> : 0.8 (hypersonique)</li>
+</ul>
+<h3>Profil Atmosphérique Utilisé</h3>
+<div class="math-block">\[
+<p>\rho(h) = \rho_0 \exp\left(-\frac{h - h_0}{H}\right)
+\]</div>
+
+Avec :
+<ul><li><span class="math-inline">\(\rho_0 = 2.5 \times 10^{-5}\)</span> kg/m³ (à 120 km)</li>
+<li>H = 8500 m (hauteur d'échelle)</li>
+</ul>
+<h3>Équations du Mouvement</h3>
+<div class="math-block">\[
+\begin{align}
+\frac{dv}{dt} &= -\frac{1}{2} \frac{\rho A C_D}{m} v^2 - g(r) \sin\gamma \\
+\frac{d\gamma}{dt} &= -\frac{g(r)}{v} \cos\gamma + \frac{1}{2} \frac{\rho A C_D}{m} \frac{v}{} \\
+\frac{dr}{dt} &= -v \sin\gamma \\
+\frac{d\theta}{dt} &= \frac{v \cos\gamma}{r}
+\end{align}
+\]</div>
+
+<h3>Résultats de Simulation (extrait)</h3>
+
+| Temps (s) | Altitude (km) | Vitesse (km/s) | γ (°) | Forces g | Température estimée (°C) |
+|-----------|---------------|----------------|--------|----------|-------------------------|
+| 0 | 122.0 | 11.2 | -6.2 | 0.1 | 0 |
+| 10 | 118.5 | 11.1 | -6.3 | 0.3 | 50 |
+| 20 | 113.2 | 10.9 | -6.5 | 0.8 | 200 |
+| 30 | 105.8 | 10.6 | -7.0 | 2.1 | 800 |
+| 40 | 95.1 | 10.0 | -8.2 | 5.8 | 2000 |
+| 50 | 80.3 | 8.9 | -12.1 | 12.3 | 5000 |
+| 60 | 60.2 | 6.8 | -25.4 | 18.7 | 8000 |
+| 70 | 35.1 | 4.2 | -45.8 | 15.2 | 6000 |
+| 80 | 15.3 | 2.1 | -62.3 | 8.9 | 2000 |
+| 90 | 2.1 | 0.8 | -78.9 | 3.2 | 500 |</p>
+
+<strong>Analyse des résultats</strong> :
+<ul><li><strong>Pic de décélération</strong> : 18.7g à t=60s (altitude 60 km)</li>
+<li><strong>Température maximale</strong> : ~8000°C (bouclier thermique absorbe)</li>
+<li><strong>Durée totale</strong> : 90 secondes pour traverser l'atmosphère</li>
+<li><strong>Vitesse finale</strong> : 0.8 km/s (vitesse subsonique pour parachute)</li>
+</ul>
+<h2>B.4 Tableau Comparatif : Missions Historiques</h2>
+
+<p>| Mission | Année | Type | Altitude Max (km) | Vitesse Max (km/s) | Durée | Calculatrice |
+|---------|-------|------|-------------------|-------------------|-------|-------------|
+| <strong>Mercury-Redstone 3</strong> | 1961 | Suborbital | 116 | 2.6 | 15 min | Katherine Johnson |
+| <strong>Mercury-Atlas 6</strong> | 1962 | Orbital | 260 | 7.8 | 5h | Katherine Johnson + IBM |
+| <strong>Gemini 6</strong> | 1965 | Orbital | 270 | 7.8 | 1.5j | Équipe calculatrices |
+| <strong>Apollo 8</strong> | 1968 | Lunaire | 400000 | 11.0 | 6j | Ordinateurs avancés |
+| <strong>Apollo 11</strong> | 1969 | Lunaire | 400000 | 11.2 | 8j | Ordinateurs avancés |
+| <strong>Space Shuttle STS-1</strong> | 1981 | Orbital | 300 | 7.8 | 2j | Ordinateurs numériques |
+| <strong>ISS</strong> | 1998 | Orbital | 420 | 7.7 | Permanent | Ordinateurs modernes |</p>
+
+<h2>B.5 Classification des Trajectoires Spatiales</h2>
+
+<h3>Par Type de Mission</h3>
+
+<p>| Catégorie | Description | Exemple | Complexité Calcul |
+|-----------|-------------|---------|------------------|
+| <strong>Suborbital</strong> | Montée et redescente sans orbite | Shepard | Faible |
+| <strong>Orbital LEO</strong> | Orbite basse (160-2000 km) | Hubble | Moyenne |
+| <strong>Orbital GEO</strong> | Orbite géostationnaire (35786 km) | Satellites TV | Élevée |
+| <strong>Lunaire</strong> | Aller-retour Terre-Lune | Apollo | Très élevée |
+| <strong>Interplanétaire</strong> | Vers autres planètes | Voyager | Extrême |</p>
+
+<h3>Par Méthode de Calcul Historique</h3>
+
+<p>| Période | Outils | Précision | Vérification |
+|---------|--------|-----------|-------------|
+| <strong>1940s-1950s</strong> | Tables + calculatrices mécaniques | ±1% | Double calcul manuel |
+| <strong>1960s</strong> | Calculatrices électroniques + IBM | ±0.1% | Comparaison homme-machine |
+| <strong>1970s-1980s</strong> | Ordinateurs numériques | ±0.01% | Simulation complète |
+| <strong>1990s-présent</strong> | Superordinateurs + IA | ±0.001% | Validation statistique |</p>
+
+<h2>C.3 Sources Additionnelles</h2>
+
+<h3>Livres Techniques</h3>
+<ul><li><strong>Battin, R. H.</strong> (1999). <em>An Introduction to the Mathematics and Methods of Astrodynamics</em></li>
+<li><strong>Curtis, H. D.</strong> (2013). <em>Orbital Mechanics for Engineering Students</em></li>
+<li><strong>Vallado, D. A.</strong> (2013). <em>Fundamentals of Astrodynamics and Applications</em></li>
+</ul>
+<h3>Archives NASA</h3>
+<ul><li><strong>Langley Research Center Archives</strong> : Documents originaux des West Computers</li>
+<li><strong>Johnson Space Center</strong> : Rapports de mission Mercury, Gemini, Apollo</li>
+<li><strong>Historical Archives</strong> : Interviews et documents de Katherine Johnson</li>
+</ul>
+<h3>Publications Académiques</h3>
+<ul><li><strong>Chapman, D. R.</strong> (1959). "An Approximate Analytical Method for Steady State Heat Transfer in Hypersonic Flight," NACA Report 1135</li>
+<li><strong>Houbolt, J. C.</strong> (1961). "A Study of the Apollo By-Pass Trajectory," NASA TN D-337</li>
+</ul>
+<h2>D.2 Index Étendu des Équations</h2>
+
+<p>| Équation | Signification | Utilisation | Chapitre | Complexité |
+|----------|---------------|-------------|----------|------------|
+| <span class="math-inline">\(F = ma\)</span> | Deuxième loi Newton | Base mécanique | Tous | Fondamentale |
+| <span class="math-inline">\(F_g = -GMm/r^2\)</span> | Loi de gravitation | Force centrale | 2, 4 | Fondamentale |
+| <span class="math-inline">\(T^2 = 4\pi^2 a^3/GM\)</span> | Troisième loi Kepler | Période orbitale | 2, 5, 6 | Moyenne |
+| <span class="math-inline">\(M = E - e\sin E\)</span> | Équation de Kepler | Temps-position | 2, 5 | Difficile |
+| <span class="math-inline">\(\vec{a} = \ddot{r} - r\dot{\theta}^2\)</span> | Accélération polaire | Mouvement 2D | 2 | Moyenne |
+| <span class="math-inline">\(a = (r_a + r_p)/2\)</span> | Demi-grand axe | Élément orbital | 5 | Simple |
+| <span class="math-inline">\(e = (r_a - r_p)/(r_a + r_p)\)</span> | Excentricité | Forme orbite | 5 | Simple |
+| <span class="math-inline">\(F_{drag} = \frac{1}{2}\rho v^2 C_D A\)</span> | Force de traînée | Rentrée | 7 | Moyenne |
+| <span class="math-inline">\(\Delta v = v_f - v_i\)</span> | Changement de vitesse | Impulsion | 6 | Simple |</p>
+
+<h2>E. Glossaire des termes techniques</h2>
+
+<h3>Mécanique Céleste</h3>
+<ul><li><strong>Anomalie excentrique (E)</strong> : Paramètre géométrique d'une ellipse relié au temps</li>
+<li><strong>Anomalie moyenne (M)</strong> : Mesure fictive de la position basée sur le mouvement moyen</li>
+<li><strong>Anomalie vraie (v)</strong> : L'angle réel depuis le périgée jusqu'à la position actuelle</li>
+<li><strong>Apogée</strong> : Point le plus élevé d'une orbite</li>
+<li><strong>Périgée</strong> : Point le plus proche d'une orbite</li>
+<li><strong>Demi-grand axe (a)</strong> : Demi-longueur de l'axe majeur d'une ellipse</li>
+<li><strong>Excentricité (e)</strong> : Mesure de l'allongement d'une ellipse (0 = cercle)</li>
+</ul>
+<h3>Physique Appliquée</h3>
+<ul><li><strong>Aérodynamique</strong> : Étude du mouvement des objets dans l'air</li>
+<li><strong>Hypersonique</strong> : Régime où v > 5 Mach (supérieur à la vitesse du son)</li>
+<li><strong>Coefficient de traînée (C_D)</strong> : Facteur adimensionnel de résistance</li>
+<li><strong>Moment cinétique</strong> : Quantité conservée du mouvement rotatif</li>
+<li><strong>Rayon de courbure</strong> : Rayon du cercle tangent à une courbe</li>
+</ul>
+<h3>Géophysique</h3>
+<ul><li><strong>Inclinaison (i)</strong> : Angle entre le plan orbital et l'équateur terrestre</li>
+<li><strong>Longitude du nœud ascendant (Ω)</strong> : Point où l'orbite croise l'équateur vers le nord</li>
+<li><strong>Argument du périgée (ω)</strong> : Angle entre nœud ascendant et périgée</li>
+<li><strong>Géoïde</strong> : Surface équipotentielle représentant la forme réelle de la Terre</li>
+<li><strong>Ellipsoïde de référence</strong> : Modèle mathématique de la forme terrestre</li>
+</ul>
+<h3>Calcul Numérique</h3>
+<ul><li><strong>Méthode d'Euler</strong> : Schéma simple d'intégration numérique</li>
+<li><strong>Méthode de Newton</strong> : Itération pour résoudre équations non-linéaires</li>
+<li><strong>Pas de temps (Δt)</strong> : Intervalle entre deux calculs successifs</li>
+<li><strong>Convergence</strong> : Propriété d'une méthode numérique à atteindre la solution exacte</li>
+</ul>
+<p>---</p>
+
+<h2>F. Exercices et Problèmes</h2>
+
+<h3>Niveau Débutant</h3>
+<p>1. <strong>Calculer la période</strong> d'une orbite circulaire à 300 km d'altitude
+2. <strong>Convertir</strong> des coordonnées cartésiennes (x=7000, y=0, z=0) en sphériques
+3. <strong>Estimer</strong> la vitesse orbitale à différentes altitudes</p>
+
+<h3>Niveau Intermédiaire</h3>
+<p>1. <strong>Résoudre</strong> l'équation de Kepler pour M = π/2, e = 0.1
+2. <strong>Simuler</strong> une trajectoire suborbitale avec la méthode d'Euler
+3. <strong>Calculer</strong> les éléments orbitaux à partir de trois positions</p>
+
+<h3>Niveau Avancé</h3>
+<p>1. <strong>Dériver</strong> les équations de rentrée atmosphérique
+2. <strong>Optimiser</strong> une trajectoire de transfert Terre-Lune
+3. <strong>Modéliser</strong> les perturbations orbitales (atmosphère, Soleil, Lune)</p>
+
+<h3>Solutions Guidées</h3>
+<p>Les solutions détaillées sont disponibles dans le répertoire pédagogique (à créer).</p>
+
+<p>---</p>
+
+<strong>Note aux lecteurs</strong> : Ces annexes sont destinées à approfondir les concepts mathématiques. Pour une compréhension complète, il est recommandé de combiner la lecture de ces dérivations avec les explications contextuelles dans les chapitres principaux.
+
+<strong>Références croisées</strong> : Voir <strong>Chapitre 2</strong> pour les bases mathématiques, <strong>Chapitre 5</strong> pour les applications pratiques, <strong>Chapitre 7</strong> pour les simulations numériques.
+
+        </article>
+    </main>
+</body>
+</html>

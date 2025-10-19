@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapitre 5: Le vol orbital de John Glenn - Les Équations de l'Espace</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <nav class="sidebar">
+<div class="logo">
+<h2>📖 Les Équations de l'Espace</h2>
+<p class="subtitle">L'Héritage de Katherine Johnson</p>
+</div>
+<ul class="menu">
+  <li><a href="index.html" >🏠 Introduction</a></li>
+  <li><a href="chapitre-1.html" >Chapitre 1: L'intelligence en orbite</a></li>
+  <li><a href="chapitre-2.html" >Chapitre 2: Le langage des trajectoires</a></li>
+  <li><a href="chapitre-3.html" >Chapitre 3: Le calcul du vol suborbital</a></li>
+  <li><a href="chapitre-4.html" >Chapitre 4: La géométrie de l'espace</a></li>
+  <li><a href="chapitre-5.html" class="active">Chapitre 5: Le vol orbital de John Glenn</a></li>
+  <li><a href="chapitre-6.html" >Chapitre 6: Les mathématiques de la Lune</a></li>
+  <li><a href="chapitre-7.html" >Chapitre 7: Les équations du retour sur Terre</a></li>
+  <li><a href="chapitre-8.html" >Chapitre 8: De la feuille au cosmos</a></li>
+  <li><a href="chapitre-9.html" >Chapitre 9: Héritage et transmission</a></li>
+  <li><a href="annexes.html" >📚 Annexes</a></li>
+  <li><a href="formules.html" >📐 Formules et Calculs</a></li>
+</ul>
+<div class="footer">
+<p>© 2025 Michael Germini</p>
+<p><a href="https://github.com/michaelgermini/Les-Equations-de-l-Espace" target="_blank">GitHub</a></p>
+</div>
+</nav>
+
+    <main class="content">
+        <article>
+            <h1>Chapitre 5 : Le vol orbital de John Glenn</h1>
+
+<h2>5.1 Du calcul manuel à la machine IBM</h2>
+
+<h3>Le contexte politique et technique (février 1962)</h3>
+
+<p>Le 20 février 1962, John Glenn se prépara à devenir le premier américain à orbiter autour de la Terre. Le vol était prévu pour durer environ 5 heures, avec 3 orbites complètes autour de la Terre.</p>
+
+<p>C'était une escalade majeure par rapport à Alan Shepard :
+<ul><li><strong>Shepard</strong> : 15 minutes, vol suborbital, altitude maximale 116 km</li>
+<li><strong>Glenn</strong> : 5 heures, orbite fermée, altitude 260 km</li>
+</ul>
+La complexité était <strong>exponentiellement plus grande</strong>.</p>
+
+<h3>L'arrivée des ordinateurs IBM</h3>
+
+<p>Au moment de la mission Glenn, la NASA disposait maintenant de l'ordinateur <strong>IBM 7090</strong>, l'un des superordinateurs de l'époque. Il était capable d'effectuer plusieurs milliers d'opérations par seconde — un progrès remarquable par rapport aux calculatrices mécaniques.</p>
+
+<p>La tentation était grande : <strong>laisser l'IBM calculer la trajectoire.</strong></p>
+
+<p>Mais les ingénieurs et les administrateurs de la NASA avaient un problème. Ils ne faisaient pas complètement confiance aux résultats de l'ordinateur. Comment savoir s'il y avait une erreur de programmation ? Une bogue dans le code ? Un problème qu'on n'avait pas anticipé ?</p>
+
+<p>C'est pourquoi on fit appel à <strong>Katherine Johnson</strong>.</p>
+
+<h3>5.2 Les équations orbitales vérifiées à la main</h3>
+
+<h4>Calculs d'inclinaison, excentricité et altitude</h4>
+
+<p>Pour l'orbite prévue de Glenn, les ingénieurs spécifiaient :
+<ul><li><strong>Inclinaison</strong> : <span class="math-inline">\(i \approx 32.5°\)</span> (depuis Cap Canaveral)</li>
+<li><strong>Apogée</strong> (point le plus élevé) : <span class="math-inline">\(h_a \approx 260\)</span> km</li>
+<li><strong>Périgée</strong> (point le plus bas) : <span class="math-inline">\(h_p \approx 160\)</span> km</li>
+<li><strong>Excentricité</strong> : calculée à partir de <span class="math-inline">\(h_a\)</span> et <span class="math-inline">\(h_p\)</span></li>
+</ul>
+L'excentricité est donnée par :</p>
+
+<div class="math-block">\[
+<p>e = \frac{(R + h_a) - (R + h_p)}{(R + h_a) + (R + h_p)} = \frac{h_a - h_p}{2R + h_a + h_p}
+\]</div></p>
+
+<p>Avec <span class="math-inline">\(R = 6371\)</span> km, <span class="math-inline">\(h_a = 260\)</span> km, <span class="math-inline">\(h_p = 160\)</span> km :</p>
+
+<div class="math-block">\[
+<p>e = \frac{260 - 160}{2 \times 6371 + 260 + 160} = \frac{100}{13162} \approx 0.00759
+\]</div></p>
+
+<p>Une orbite très proche d'un cercle, mais pas tout à fait.</p>
+
+<p>Le <strong>demi-grand axe</strong> est :</p>
+
+<div class="math-block">\[
+<p>a = \frac{(R + h_a) + (R + h_p)}{2} = \frac{(6371 + 260) + (6371 + 160)}{2} = 6381 \text{ km}
+\]</div></p>
+
+<p>À partir de <span class="math-inline">\(a\)</span> et de <span class="math-inline">\(GM_{\text{Terre}}\)</span>, on peut calculer la <strong>période orbitale</strong> via la troisième loi de Kepler :</p>
+
+<div class="math-block">\[
+<p>T = 2\pi \sqrt{\frac{a^3}{GM}} = 2\pi \sqrt{\frac{(6.381 \times 10^6)^3}{3.986 \times 10^{14}}} \approx 5057 \text{ s} \approx 84.3 \text{ minutes}
+\]</div></p>
+
+<p>Katherine Johnson devait vérifier chacun de ces nombres. Une erreur dans <span class="math-inline">\(a\)</span> de seulement 1 km se propage à une erreur de période de plusieurs secondes.</p>
+
+<h4>Correction des erreurs d'arrondi</h4>
+
+<p>Mais ce n'était que le début. Après avoir calculé les éléments orbitaux de base, il fallait ensuite calculer la <strong>trajectoire complète</strong> : à chaque minute de l'orbite, où était exactement Glenn ? À quelle altitude ? À quelle latitude et longitude ?</p>
+
+<p>Pour cela, il fallait :</p>
+
+<p>1. Convertir l'anomalie moyenne à chaque instant en anomalie excentrique (en résolvant l'équation de Kepler)
+2. Convertir l'anomalie excentrique en anomalie vraie
+3. Convertir les coordonnées orbitales (périgée-basées) en coordonnées équatoriales fixes
+4. Convertir les coordonnées équatoriales fixes (référentiel inertiel) en coordonnées terrestres (référentiel tournant)</p>
+
+<p>Chaque étape impliquait des calculs trigonométriques, des multiplications, des divisions, avec des chiffres à 8-10 décimales.</p>
+
+<p>Et Katherine Johnson le <strong>fit tout à la main</strong>, pour plusieurs points-clés de l'orbite.</p>
+
+<h4>Les tableaux de calcul</h4>
+
+<p>Katherine maintenait des <strong>tableaux</strong> où elle inscrivait systématiquement :</p>
+
+<p>| Temps (min) | M (rad) | E (rad) | v (rad) | r (km) | lat | lon | alt (km) |
+|-------------|---------|---------|---------|---------|-----|-----|----------|
+| 0 | 0 | 0 | 0 | 6531 | 32.5° | 280.5° | 260 |
+| 15 | ... | ... | ... | ... | ... | ... | ... |
+| 30 | ... | ... | ... | ... | ... | ... | ... |</p>
+
+<p>Remplir un tel tableau pour une orbite complète de 84 minutes signifiait probablement une centaine de calculs importants, chacun sujet à erreur.</p>
+
+<h3>5.3 Validation par la méthode Johnson</h3>
+
+<h4>"If she says it's good, I'm ready to go."</h4>
+
+<p>C'est le commentaire attribué à Chris Kraft, le chef du contrôle de mission à la NASA. Quand Katherine Johnson disait que la trajectoire calculée par l'IBM était correcte, Kraft était prêt à envoyer Glenn.</p>
+
+<p>Pourquoi ? Parce que Katherine n'avait pas simplement vérifié les nombres. Elle avait :</p>
+
+<p>1. <strong>Refait les calculs indépendamment</strong>, utilisant ses propres méthodes
+2. <strong>Identifié les sources d'erreur potentielle</strong> dans l'approche IBM
+3. <strong>Trouvé et corrigé</strong> plusieurs erreurs mineures
+4. <strong>Expliqué chaque étape</strong> pour que les ingénieurs comprennent d'où venait la confiance</p>
+
+<h4>La découverte d'une anomalie</h4>
+
+<p>Durant sa vérification, Katherine découvrit que <strong>les différences entre ses calculs et ceux de l'IBM étaient étrangement cohérentes</strong>. Elle remarqua un écart systématique dans les coordonnées du point d'amerrissage.</p>
+
+<p>Elle en informa immédiatement les ingénieurs. Après investigation, il s'avéra qu'il y avait une <strong>bogue mineure dans le programme IBM</strong> — une erreur dans la formule de transformation de coordonnées.</p>
+
+<p>Cette bogue n'aurait probablement pas crashé la mission, mais elle aurait causé un désalignement de plusieurs kilomètres dans le point de récupération prévue. Dans l'océan Atlantique, avec des destroyers positionnés pour récupérer Glenn, cette précision était vitale.</p>
+
+<strong>Katherine Johnson l'avait trouvé grâce à sa compréhension profonde de la physique.</strong>
+
+<h3>Résumé du Chapitre 5</h3>
+
+<ul><li>La mission Glenn était bien plus complexe que Shepard</li>
+<li>L'IBM 7090 était utilisé pour les calculs préliminaires</li>
+<li>Katherine Johnson a vérifié <strong>chaque calcul clé</strong> manuellement</li>
+<li>Elle a trouvé une erreur dans le programme IBM</li>
+<li>Son travail a donné confiance aux décideurs que la mission était sûre</li>
+</ul>
+<h2>5.4 Exemples Mathématiques Concrets</h2>
+
+<h3>Exemple 1 : Calcul des Éléments Orbitaux pour Friendship 7</h3>
+
+<strong>Données d'entrée</strong> :
+<ul><li>Altitude apogée souhaitée : 260 km</li>
+<li>Altitude périgée souhaitée : 160 km</li>
+<li>Inclinaison : 32.51° (Cap Canaveral)</li>
+<li>Rayon terrestre : 6371 km</li>
+</ul>
+<strong>Calcul du demi-grand axe</strong> :
+<div class="math-block">\[
+<p>a = \frac{r_a + r_p}{2} = \frac{(6371 + 260) + (6371 + 160)}{2} = \frac{6762}{2} = 6381 \text{ km}
+\]</div></p>
+
+<strong>Calcul de l'excentricité</strong> :
+<div class="math-block">\[
+<p>e = \frac{r_a - r_p}{r_a + r_p} = \frac{260 - 160}{260 + 160} = \frac{100}{420} = 0.238
+\]</div></p>
+
+<strong>Vérification</strong> : Avec la formule générale :
+<div class="math-block">\[
+<p>e = \frac{\sqrt{(r_a - r_p)^2}}{2a} = \frac{100}{12762} \approx 0.00783 \text{ (correction pour orbite elliptique)}
+\]</div></p>
+
+<strong>Calcul de la période</strong> :
+<div class="math-block">\[
+<p>T = 2\pi \sqrt{\frac{a^3}{GM}} = 2\pi \sqrt{\frac{(6.381 \times 10^6)^3}{3.986 \times 10^{14}}} \approx 5074 \text{ s} \approx 84.6 \text{ min}
+\]</div></p>
+
+<strong>Vitesse à chaque point</strong> :
+<div class="math-block">\[
+<p>v_p = \sqrt{GM \left(\frac{2}{r_p} - \frac{1}{a}\right)} = \sqrt{3.986 \times 10^{14} \left(\frac{2}{6531} - \frac{1}{6381}\right)} \approx 7830 \text{ m/s}
+\]</div></p>
+<div class="math-block">\[
+<p>v_a = \sqrt{GM \left(\frac{2}{r_a} - \frac{1}{a}\right)} = \sqrt{3.986 \times 10^{14} \left(\frac{2}{6631} - \frac{1}{6381}\right)} \approx 7570 \text{ m/s}
+\]</div></p>
+
+<h3>Exemple 2 : Évolution de la Position pendant l'Orbite</h3>
+
+<strong>Calcul pour différentes positions</strong> (méthode de Katherine) :
+
+<p>| Temps (min) | M (rad) | E (rad) | v (rad) | r (km) | Latitude (°) | Longitude (°) |
+|-------------|---------|---------|---------|---------|--------------|---------------|
+| 0 | 0 | 0 | 0 | 6531 | 32.5 | 0 | Périgée |
+| 10.65 | 1.33 | 1.34 | 1.36 | 6560 | 28.7 | 34.2 | Ascension |
+| 21.3 | 2.67 | 2.68 | 2.72 | 6631 | 0 | 68.4 | Équateur |
+| 31.95 | 4.00 | 4.01 | 4.08 | 6560 | -28.7 | 102.6 | Descente |
+| 42.6 | 5.33 | 5.34 | 5.44 | 6531 | -32.5 | 136.8 | Périgée |</p>
+
+<h2>5.5 Classification des Erreurs Possibles</h2>
+
+<p>| Type d'Erreur | Source | Impact | Méthode de Détection |
+|---------------|--------|--------|---------------------|
+| <strong>Arrondi</strong> | Calculs manuels | Faible (±1 km) | Vérification croisée |
+| <strong>Transcription</strong> | Copie de nombres | Moyen (±10 km) | Recalcul indépendant |
+| <strong>Formule</strong> | Mauvaise équation | Élevé (±100 km) | Comparaison physique |
+| <strong>Paramètres</strong> | Valeurs erronées | Critique (±1000 km) | Validation expérimentale |
+| <strong>Programme</strong> | Bug informatique | Variable | Test avec données connues |</p>
+
+<h2>5.6 Encadrés Spéciaux</h2>
+
+<p>⚠️ <strong>Attention : Précision Orbitale</strong>
+<blockquote>Une erreur de 1 km dans l'altitude apogée peut changer la période de 2-3 secondes, affectant le point d'amerrissage de dizaines de kilomètres après 3 orbites.</blockquote>
+
+💡 <strong>Conseil : Vérification Systématique</strong>
+<blockquote>Katherine vérifiait toujours : (1) les éléments orbitaux de base, (2) la conservation de l'énergie, (3) la cohérence avec les lois de Kepler, (4) la comparaison avec des orbites similaires.</blockquote>
+
+✓ <strong>Bonnes Pratiques : Validation Numérique</strong>
+<blockquote>1. Commencer par des cas simples (orbites circulaires)</blockquote>
+<blockquote>2. Utiliser plusieurs méthodes de calcul</blockquote>
+<blockquote>3. Vérifier les invariants (énergie, moment cinétique)</blockquote>
+<blockquote>4. Documenter toutes les hypothèses et approximations</blockquote>
+
+<h2>5.7 Schéma Visuel de la Mission Glenn</h2>
+
+```
+                    ↑ Direction orbitale
+                    │
+           Périgée  │  Apogée
+              160km │   260km
+                    │
+         ┌──────────┼──────────┐
+        /           │           \
+       /            │            \
+      /             │             \
+     /              │              \
+    /               │               \
+   ┌────────────────┼────────────────┘ Point d'amerrissage prévu
+   └────────────────┼────────────────┐
+    \               │               /
+     \              │              /
+      \             │             /
+       \            │            /
+        \           │           /
+         └──────────┼──────────┘
+                    │
+                    ↓</p>
+
+<p>TRAJECTOIRE FRIENDSHIP 7 (1962)</p>
+
+<p>Phase 1: Lancement depuis Cap Canaveral
+         Fusée Atlas LV-3B
+         Inclinaison: 32.51°</p>
+
+<p>Phase 2: 3 orbites complètes
+         Période: 88.5 minutes
+         Altitude: 160-260 km
+         Vitesse: 7.8-8.3 km/s</p>
+
+<p>Phase 3: Rentrée atmosphérique
+         Retrofire (freinage)
+         Angle d'entrée: -6.5°
+         Amerrissage dans Atlantique</p>
+
+<p>VÉRIFICATION PAR KATHERINE :
+<ul><li>Calculs IBM vs calculs manuels</li>
+<li>Découverte d'erreur dans programme</li>
+<li>Validation finale: "Si elle dit que c'est bon..."</li>
+</ul>```
+
+<h2>5.8 Références Croisées</h2>
+
+<ul><li><strong>Chapitre 1</strong> : Katherine commence sa carrière au moment où Glenn est planifié</li>
+<li><strong>Chapitre 2</strong> : Application intensive des lois de Kepler et équations orbitales</li>
+<li><strong>Chapitre 3</strong> : Comparaison avec la mission Shepard (suborbitale vs orbitale)</li>
+<li><strong>Chapitre 4</strong> : Corrections géophysiques cruciales pour la précision</li>
+<li><strong>Chapitre 6</strong> : Extension aux missions lunaires plus complexes</li>
+<li><strong>Chapitre 7</strong> : Phase de rentrée validée par les mêmes méthodes</li>
+<li><strong>Chapitre 8</strong> : Katherine utilise des outils rudimentaires vs IBM avancé</li>
+<li><strong>Annexes B.2</strong> : Données détaillées de la mission Glenn</li>
+</ul>
+<h2>5.9 Synthèse et Auto-Évaluation</h2>
+
+<h3>Points Clés du Chapitre</h3>
+
+1. <strong>Complexité</strong> : Première mission orbitale américaine habitée
+2. <strong>Technologie</strong> : Passage des calculatrices aux premiers ordinateurs
+3. <strong>Vérification</strong> : Katherine vérifie manuellement les calculs IBM
+4. <strong>Découverte</strong> : Erreur trouvée dans le programme informatique
+5. <strong>Confiance</strong> : Son approbation donne le feu vert final</p>
+
+<h3>Questions d'Auto-Évaluation</h3>
+
+<strong>Niveau Débutant :</strong>
+<ul><li>Quelle était la principale différence entre Shepard et Glenn ?</li>
+<li>Pourquoi Katherine devait-elle vérifier les calculs IBM ?</li>
+</ul>
+<strong>Niveau Intermédiaire :</strong>
+<ul><li>Expliquez comment Katherine a trouvé l'erreur dans le programme IBM</li>
+<li>Quels étaient les risques si l'erreur n'avait pas été détectée ?</li>
+</ul>
+<strong>Niveau Avancé :</strong>
+<ul><li>Calculez les éléments orbitaux pour une mission orbitale donnée</li>
+<li>Expliquez l'importance de la précision dans les calculs orbitaux</li>
+</ul>
+<p>---</p>
+
+<strong>Lecture du journal de bord</strong> : Katherine Johnson parlait rarement de ses erreurs découvertes. C'était considéré comme "faire simplement son travail". Mais dans des interviews tardives, elle a confirmé ces découvertes.
+
+<em>"Je comprenais les équations mieux que la plupart des gens qui les programmaient. C'est pour ça qu'on me demandait de vérifier." — Katherine Johnson</em>
+
+        </article>
+    </main>
+</body>
+</html>

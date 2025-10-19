@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapitre 3: Le calcul du vol suborbital - Les Équations de l'Espace</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <nav class="sidebar">
+<div class="logo">
+<h2>📖 Les Équations de l'Espace</h2>
+<p class="subtitle">L'Héritage de Katherine Johnson</p>
+</div>
+<ul class="menu">
+  <li><a href="index.html" >🏠 Introduction</a></li>
+  <li><a href="chapitre-1.html" >Chapitre 1: L'intelligence en orbite</a></li>
+  <li><a href="chapitre-2.html" >Chapitre 2: Le langage des trajectoires</a></li>
+  <li><a href="chapitre-3.html" class="active">Chapitre 3: Le calcul du vol suborbital</a></li>
+  <li><a href="chapitre-4.html" >Chapitre 4: La géométrie de l'espace</a></li>
+  <li><a href="chapitre-5.html" >Chapitre 5: Le vol orbital de John Glenn</a></li>
+  <li><a href="chapitre-6.html" >Chapitre 6: Les mathématiques de la Lune</a></li>
+  <li><a href="chapitre-7.html" >Chapitre 7: Les équations du retour sur Terre</a></li>
+  <li><a href="chapitre-8.html" >Chapitre 8: De la feuille au cosmos</a></li>
+  <li><a href="chapitre-9.html" >Chapitre 9: Héritage et transmission</a></li>
+  <li><a href="annexes.html" >📚 Annexes</a></li>
+  <li><a href="formules.html" >📐 Formules et Calculs</a></li>
+</ul>
+<div class="footer">
+<p>© 2025 Michael Germini</p>
+<p><a href="https://github.com/michaelgermini/Les-Equations-de-l-Espace" target="_blank">GitHub</a></p>
+</div>
+</nav>
+
+    <main class="content">
+        <article>
+            <h1>Chapitre 3 : Le calcul du vol suborbital</h1>
+
+<h2>3.1 Le cas Alan Shepard : un vol parabolique</h2>
+
+<h3>Le contexte historique (mai 1961)</h3>
+
+<p>Le 5 mai 1961, à 9h34 du matin, Alan Shepard devint le premier américain dans l'espace. Son vol à bord de Freedom 7 dura 15 minutes et 28 secondes. Il monta jusqu'à une altitude de 116 km et redescendit en parachute dans l'Atlantique.</p>
+
+<p>Ce n'était <strong>pas une orbite</strong>. C'était un vol <strong>suborbital</strong> — une trajectoire balistique simple qui montait et retombait. Mais c'était un test crucial pour les nouvelles technologies spatiales américaines.</p>
+
+<p>Et <strong>Katherine Johnson</strong> fut responsable de calculer la trajectoire.</p>
+
+<h3>Modélisation de la trajectoire</h3>
+
+<h4>De l'ascension au point culminant</h4>
+
+<p>Le vol de Shepard peut être divisé en trois phases :</p>
+
+<strong>Phase 1 : Propulsion</strong> (0-2 minutes)
+<ul><li>Le moteur Redstone accélère la capsule verticalement</li>
+<li>L'accélération n'est pas constante mais suit une courbe décrite par les ingénieurs</li>
+<li>À 2 minutes environ, le moteur s'éteint à une altitude d'environ 62 km</li>
+</ul>
+<strong>Phase 2 : Ascension balistique</strong> (2-4 minutes)
+<ul><li>La capsule continue à monter sous l'inertie seule</li>
+<li>La gravité la ralentit progressivement</li>
+<li>Elle atteint son point culminant à ~116 km</li>
+</ul>
+<strong>Phase 3 : Descente</strong> (4-15 minutes)
+<ul><li>Retombée libre avec redirection de la capsule</li>
+<li>Entrée dans la denser atmosphère inférieure</li>
+<li>Déploiement du parachute</li>
+<li>Descente jusqu'à amerrissage</li>
+</ul>
+<h4>Les équations du mouvement</h4>
+
+<p>Pendant les phases d'ascension balistique et de descente (après extinction du moteur), le mouvement obéit à une équation très simple : la <strong>deuxième loi de Newton</strong> en une dimension avec la gravité comme unique force.</p>
+
+<p>En prenant <span class="math-inline">\(z\)</span> comme la hauteur (distance de la surface terrestre), et en ignorant la résistance de l'air pour l'instant :</p>
+
+<div class="math-block">\[
+<p>\frac{d^2z}{dt^2} = -g
+\]</div></p>
+
+<p>Où <span class="math-inline">\(g\)</span> est l'accélération due à la gravité, environ <span class="math-inline">\(9.81 \text{ m/s}^2\)</span> près de la surface, mais qui diminue avec l'altitude :</p>
+
+<div class="math-block">\[
+<p>g(z) = \frac{GM}{(R + z)^2}
+\]</div></p>
+
+<p>Où <span class="math-inline">\(R\)</span> est le rayon terrestre (<span class="math-inline">\(6371\)</span> km).</p>
+
+<p>À l'altitude de Shepard (116 km), la variation de <span class="math-inline">\(g\)</span> n'était pas négligeable, mais on pouvait l'approcher comme constante pour un calcul rapide :</p>
+
+<div class="math-block">\[
+<p>g(116 \text{ km}) \approx 0.966 \, g_0 \approx 9.47 \text{ m/s}^2
+\]</div></p>
+
+<h4>Influence de la gravité terrestre</h4>
+
+<p>Un point subtil mais important : la Terre <strong>n'est pas un point</strong>. Elle a une étendue, et la gravité varie avec l'altitude.</p>
+
+<p>De plus, pendant les 15 minutes du vol, la Terre continue de tourner. Un point qui était sous le spacecraft à 0 minute n'était plus le même point à 15 minutes, car la Terre avait tourné d'environ 3,8 degrés sur son axe.</p>
+
+<p>Katherine Johnson devait tenir compte de :</p>
+
+<p>1. <strong>La variation de g avec l'altitude</strong> : mesurable et correcte, en utilisant la formule inverse du carré de la distance
+2. <strong>La rotation terrestre</strong> : elle affectait la localisation du point d'amarrissage prévu
+3. <strong>Le profil d'accélération du moteur</strong> : pas constant, mais variant selon le temps
+4. <strong>Les conditions atmosphériques</strong> : la densité de l'air, qui affecte la trajectoire</p>
+
+<blockquote><strong>Note historique</strong> : Katherine Johnson n'utilisait pas d'ordinateur pour ces calculs. Elle utilisait une calculatrice mécanique et des logarithmes imprimés. Pour chaque équation à résoudre, elle déterminait la meilleure approche numérique, puis effectuait les calculs étape par étape.</blockquote>
+
+<h3>3.2 Les équations différentielles du mouvement</h3>
+
+<h4>Application de F = ma en 3D</h4>
+
+<p>Pour une trajectoire complète, nous ne pouvons pas simplement considérer la dimension verticale. Nous devons considérer trois dimensions :</p>
+
+<div class="math-block">\[
+<p>\vec{F} = m\vec{g}(\vec{r})
+\]</div></p>
+
+<p>En trois dimensions cartésiennes :</p>
+
+<div class="math-block">\[
+<p>\begin{align}
+\frac{d^2x}{dt^2} &= -\frac{GM}{r^3} x + a_x(\text{moteur}) \\
+\frac{d^2y}{dt^2} &= -\frac{GM}{r^3} y + a_y(\text{moteur}) \\
+\frac{d^2z}{dt^2} &= -\frac{GM}{r^3} z + a_z(\text{moteur})
+\end{align}
+\]</div></p>
+
+<p>Où <span class="math-inline">\(r = \sqrt{x^2 + y^2 + z^2}\)</span> est la distance du centre terrestre, et <span class="math-inline">\(a_x, a_y, a_z\)</span> sont les composantes de l'accélération due au moteur (nulles après extinction).</p>
+
+<h4>Résolution numérique par méthodes manuelles</h4>
+
+<p>Il n'y a pas de solution analytique fermée à ce système d'équations différentielles couplées. Il faut utiliser une méthode numérique.</p>
+
+<p>##### La méthode d'Euler</p>
+
+<p>La méthode la plus simple est la <strong>méthode d'Euler</strong> :</p>
+
+<strong>Étape 1 : Conditions initiales</strong>
+<p>Nous commençons avec :
+<ul><li>Position initiale : <span class="math-inline">\((x_0, y_0, z_0)\)</span></li>
+<li>Vitesse initiale : <span class="math-inline">\((v_{x0}, v_{y0}, v_{z0})\)</span></li>
+<li>Temps initial : <span class="math-inline">\(t_0 = 0\)</span></li>
+</ul>
+<strong>Étape 2 : Calcul de l'accélération</strong>
+À chaque pas, nous devons calculer l'accélération actuelle :</p>
+
+<div class="math-block">\[
+<p>\vec{a}_n = -\frac{GM}{r_n^3} \vec{r}_n
+\]</div></p>
+
+<p>Où :
+<ul><li><span class="math-inline">\(r_n = \sqrt{x_n^2 + y_n^2 + z_n^2}\)</span> est la distance au centre terrestre</li>
+<li><span class="math-inline">\(\vec{r}_n = (x_n, y_n, z_n)\)</span> est le vecteur position</li>
+<li><span class="math-inline">\(GM = 3.986 \times 10^{14}\)</span> m³/s² pour la Terre</li>
+</ul>
+<strong>Étape 3 : Mise à jour de la vitesse</strong>
+La nouvelle vitesse est :</p>
+
+<div class="math-block">\[
+<p>v_{x,n+1} = v_{x,n} + a_{x,n} \Delta t
+\]</div></p>
+
+<div class="math-block">\[
+<p>v_{y,n+1} = v_{y,n} + a_{y,n} \Delta t
+\]</div></p>
+
+<div class="math-block">\[
+<p>v_{z,n+1} = v_{z,n} + a_{z,n} \Delta t
+\]</div></p>
+
+<strong>Pourquoi cette formule ?</strong>
+<ul><li>La vitesse change proportionnellement à l'accélération</li>
+<li><span class="math-inline">\(\Delta t\)</span> est petit, donc l'approximation linéaire est bonne</li>
+<li>Cette formule vient directement de l'intégration numérique : <span class="math-inline">\(\frac{dv}{dt} \approx \frac{\Delta v}{\Delta t}\)</span></li>
+</ul>
+<strong>Étape 4 : Mise à jour de la position</strong>
+<p>La nouvelle position est :</p>
+
+<div class="math-block">\[
+<p>x_{n+1} = x_n + v_{x,n} \Delta t
+\]</div></p>
+
+<div class="math-block">\[
+<p>y_{n+1} = y_n + v_{y,n} \Delta t
+\]</div></p>
+
+<div class="math-block">\[
+<p>z_{n+1} = z_n + v_{z,n} \Delta t
+\]</div></p>
+
+<strong>Pourquoi cette formule ?</strong>
+<ul><li>La position change proportionnellement à la vitesse</li>
+<li>Nous utilisons la vitesse au début de l'intervalle (<span class="math-inline">\(v_n\)</span>) pour calculer le déplacement</li>
+<li>Cette approximation est correcte au premier ordre</li>
+</ul>
+<strong>Étape 5 : Incrémentation du temps</strong>
+<div class="math-block">\[
+<p>t_{n+1} = t_n + \Delta t
+\]</div></p>
+
+<strong>Étape 6 : Répétition</strong>
+<p>Répéter les étapes 2-5 jusqu'à atteindre le temps final ou une condition d'arrêt (par exemple, amerrissage).</p>
+
+<strong>Étape 7 : Choix du pas de temps</strong>
+<p>Pour la mission Shepard, Katherine utilisait généralement :
+<ul><li><span class="math-inline">\(\Delta t = 1\)</span> seconde pour les calculs préliminaires</li>
+<li><span class="math-inline">\(\Delta t = 0.1\)</span> seconde près de l'apogée pour plus de précision</li>
+<li><span class="math-inline">\(\Delta t = 0.01\)</span> seconde près de l'amerrissage</li>
+</ul>
+<strong>Étape 8 : Gestion des erreurs</strong>
+<ul><li><strong>Erreur locale</strong> (par pas) : proportionnelle à <span class="math-inline">\((\Delta t)^2\)</span></li>
+<li><strong>Erreur globale</strong> : proportionnelle à <span class="math-inline">\(\Delta t\)</span></li>
+<li>Pour 900 pas avec <span class="math-inline">\(\Delta t = 1\)</span> s : erreur globale acceptable pour les calculs préliminaires</li>
+</ul>
+<strong>Exemple concret pour Shepard :</strong>
+<ul><li>Temps total : 15 minutes = 900 secondes</li>
+<li>Nombre d'itérations : 900 (avec <span class="math-inline">\(\Delta t = 1\)</span> s)</li>
+<li>Calculs par itération : 6 additions + 1 calcul de distance + 1 calcul d'accélération</li>
+<li>Total : environ 900 × 8 = 7200 opérations arithmétiques de base</li>
+</ul>
+<strong>Limites de la méthode :</strong> L'erreur s'accumule, donc pour des simulations très précises, on utilise des méthodes plus sophistiquées (Runge-Kutta).
+
+##### Corrections et itérations</p>
+
+<p>Les méthodes numériques simples accumulent des erreurs. Pour cette raison, Katherine Johnson devait :</p>
+
+<p>1. Effectuer les calculs avec des pas de temps petits
+2. Vérifier les résultats par une deuxième méthode ou une approche différente
+3. Estimer les erreurs d'arrondi et ajuster en conséquence
+4. Recommencer si les résultats ne convergeaient pas vers une solution acceptable</p>
+
+<h3>3.3 L'art de vérifier sans ordinateur</h3>
+
+<h4>Les sources d'erreur</h4>
+
+<p>Même avec une calculatrice mécanique, les sources d'erreur étaient nombreuses :</p>
+
+<p>1. <strong>Erreurs d'arrondi</strong> : chaque calcul n'était précis que jusqu'à 8-10 chiffres significatifs
+2. <strong>Erreurs d'accumulation</strong> : après 900 itérations, les petites erreurs s'ajoutaient
+3. <strong>Erreurs de transcription</strong> : copier un nombre d'une ligne à l'autre pouvait introduire une erreur
+4. <strong>Erreurs conceptuelles</strong> : utiliser la mauvaise formule ou la mauvaise valeur de paramètre</p>
+
+<h4>Les techniques de vérification</h4>
+
+<p>Katherine Johnson utilisait plusieurs techniques pour vérifier son travail :</p>
+
+<strong>Vérification croisée</strong> : Elle résolvait le même problème par deux méthodes différentes et vérifiait que les réponses convergeaient.
+
+<strong>Vérification de cohérence physique</strong> : Elle vérifiait que les résultats avaient du sens. Par exemple, l'altitude maximale devrait être positive et inférieure à 200 km. La vitesse à l'amerrissage devrait être positive. La durée du vol devrait être comprise entre 10 et 20 minutes.
+
+<strong>Vérification des ordres de grandeur</strong> : Elle estimait l'ordre de grandeur attendu et vérifiait que la réponse était raisonnablement proche.
+
+<strong>Comparaison avec les données expérimentales</strong> : Pour les vols précédents (comme les tests sans équipage), elle comparait ses prédictions théoriques avec les observations réelles.
+
+<h4>Le facteur humain</h4>
+
+<p>Un aspect souvent oublié : Katherine Johnson était <strong>excellente en communication</strong> de ses résultats. Elle ne fournissait pas simplement un nombre. Elle expliquait :</p>
+
+<ul><li>Comment elle avait obtenu le résultat</li>
+<li>Quelles hypothèses elle avait faites</li>
+<li>Quelles étaient les sources d'incertitude</li>
+<li>Quels étaient les facteurs de risque</li>
+</ul>
+<p>Cela faisait que les ingénieurs et les astronautes lui faisaient confiance. Quand Katherine disait que la trajectoire était bonne, elle était <strong>vraiment</strong> bonne.</p>
+
+<h2>3.4 Références Croisées</h2>
+
+<ul><li><strong>Chapitre 1</strong> : Katherine commence sa carrière avec ces calculs simples</li>
+<li><strong>Chapitre 2</strong> : Utilise les lois de Kepler pour prédire la trajectoire parabolique</li>
+<li><strong>Chapitre 5</strong> : Contraste avec la complexité des orbites (Glenn vs Shepard)</li>
+<li><strong>Chapitre 7</strong> : Extension aux rentrées atmosphériques complexes</li>
+<li><strong>Chapitre 8</strong> : Katherine utilise des outils rudimentaires pour ces calculs</li>
+<li><strong>Annexes B.1</strong> : Données détaillées de la mission Shepard</li>
+</ul>
+<h3>Résumé du Chapitre 3</h3>
+
+<ul><li>Le vol suborbital de Shepard était une trajectoire balistique simple, mais son calcul précis était crucial</li>
+<li>Les équations différentielles du mouvement 3D n'ont pas de solution analytique fermée</li>
+<li>Des méthodes numériques itératives (comme la méthode d'Euler) doivent être utilisées</li>
+<li>Katherine Johnson effectuait ces calculs à la main, accumulation d'une rigueur remarquable</li>
+<li>La vérification était aussi importante que le calcul lui-même</li>
+</ul>
+<p>---</p>
+
+<strong>Lectures complémentaires</strong> :
+<ul><li>NASA archives sur Freedom 7</li>
+<li>Technique d'intégration numérique en analyse classique</li>
+</ul>
+<em>"Chaque chiffre comptait. Littéralement. Un arrondi incorrect pouvait tuer quelqu'un." — Katherine Johnson</em>
+
+        </article>
+    </main>
+</body>
+</html>

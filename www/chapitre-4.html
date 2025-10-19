@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapitre 4: La géométrie de l'espace - Les Équations de l'Espace</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <nav class="sidebar">
+<div class="logo">
+<h2>📖 Les Équations de l'Espace</h2>
+<p class="subtitle">L'Héritage de Katherine Johnson</p>
+</div>
+<ul class="menu">
+  <li><a href="index.html" >🏠 Introduction</a></li>
+  <li><a href="chapitre-1.html" >Chapitre 1: L'intelligence en orbite</a></li>
+  <li><a href="chapitre-2.html" >Chapitre 2: Le langage des trajectoires</a></li>
+  <li><a href="chapitre-3.html" >Chapitre 3: Le calcul du vol suborbital</a></li>
+  <li><a href="chapitre-4.html" class="active">Chapitre 4: La géométrie de l'espace</a></li>
+  <li><a href="chapitre-5.html" >Chapitre 5: Le vol orbital de John Glenn</a></li>
+  <li><a href="chapitre-6.html" >Chapitre 6: Les mathématiques de la Lune</a></li>
+  <li><a href="chapitre-7.html" >Chapitre 7: Les équations du retour sur Terre</a></li>
+  <li><a href="chapitre-8.html" >Chapitre 8: De la feuille au cosmos</a></li>
+  <li><a href="chapitre-9.html" >Chapitre 9: Héritage et transmission</a></li>
+  <li><a href="annexes.html" >📚 Annexes</a></li>
+  <li><a href="formules.html" >📐 Formules et Calculs</a></li>
+</ul>
+<div class="footer">
+<p>© 2025 Michael Germini</p>
+<p><a href="https://github.com/michaelgermini/Les-Equations-de-l-Espace" target="_blank">GitHub</a></p>
+</div>
+</nav>
+
+    <main class="content">
+        <article>
+            <h1>Chapitre 4 : La géométrie de l'espace</h1>
+
+<h2>🎯 Vue d'Ensemble du Chapitre</h2>
+
+<p>Ce chapitre explore les subtilités géométriques et physiques qui rendent le "vide" spatial bien plus complexe qu'il n'y paraît. De la forme légèrement aplatie de la Terre aux effets de sa rotation, nous découvrons pourquoi les calculs de trajectoire nécessitent des corrections sophistiquées.</p>
+
+<strong>Objectifs d'apprentissage :</strong>
+<ul><li>Comprendre que la Terre n'est pas une sphère parfaite</li>
+<li>Maîtriser les systèmes de coordonnées utilisés en astronautique</li>
+<li>Analyser les effets de la rotation terrestre sur les trajectoires</li>
+<li>Évaluer l'importance des corrections physiques dans les calculs précis</li>
+</ul>
+<strong>Points clés :</strong>
+<p>1. Ellipsoïde de référence WGS84
+2. Rotation terrestre et force de Coriolis
+3. Corrections relativistes et gravitationnelles
+4. Applications aux missions spatiales</p>
+
+<p>---</p>
+
+<h2>🧠 Carte Mentale : Géométrie Spatiale</h2>
+
+<p>```
+GÉOMÉTRIE DE L'ESPACE
+├── 🌍 FORME DE LA TERRE
+│   ├── Sphère parfaite (approximation)
+│   ├── Ellipsoïde aplati (réalité)
+│   └── Géoïde irrégulier (précision ultime)
+├── 📐 SYSTÈMES DE COORDONNÉES
+│   ├── Cartésiennes (x,y,z)
+│   ├── Sphériques (r,θ,φ)
+│   ├── Orbitales (éléments keplériens)
+│   └── Géodésiques (lat,lon,h)
+├── 🌪️ EFFETS DYNAMIQUES
+│   ├── Rotation terrestre
+│   ├── Force de Coriolis
+│   ├── Marées gravitationnelles
+│   └── Pression de radiation
+└── 🔬 CORRECTIONS PHYSIQUES
+    ├── Potentiel gravitationnel
+    ├── Atmosphère résiduelle
+    ├── Effets relativistes
+    └── Précision requise
+```
+
+<strong>Légende :</strong> 🔵 Concepts fondamentaux | 🟡 Corrections importantes | 🟢 Applications pratiques
+
+---</p>
+
+<h2>📊 Classification : Niveaux de Précision Géodésique</h2>
+
+<p>| Niveau | Modèle | Précision | Applications | Exemple d'Erreur |
+|--------|--------|-----------|-------------|------------------|
+| <strong>1 - Sphère</strong> | Rayon constant | ±100 km | Calculs préliminaires | Trajectoire approximative |
+| <strong>2 - Ellipsoïde</strong> | Aplatissement polaire | ±1 km | Navigation GPS | Point d'atterrissage |
+| <strong>3 - Géoïde</strong> | Surface équipotentielle | ±10 m | Cartographie précise | Topographie détaillée |
+| <strong>4 - Géodésie moderne</strong> | Variations locales | ±1 cm | Missions spatiales | Corrections orbitales |</p>
+
+<h2>4.1 La Terre n'est pas une sphère parfaite : l'ellipsoïde de référence</h2>
+
+<h3>L'hypothèse simplifiante</h3>
+
+<p>Dans les chapitres précédents, nous avons traité la Terre comme une sphère parfaite de rayon <span class="math-inline">\(R = 6371\)</span> km, avec une masse uniformément distribuée.</p>
+
+<strong>C'est une hypothèse qui, bien que utile pour les calculs préliminaires, n'est pas précise.</strong>
+
+<p>En réalité, la Terre est légèrement aplatie aux pôles et bombée à l'équateur. Elle ressemble plus à un <strong>ellipsoïde oblate</strong> (ou plus techniquement, un <strong>géoïde</strong>).</p>
+
+<h3>L'ellipsoïde de référence WGS84</h3>
+
+<p>Pour les calculs de trajectoires précises, les astronomes et les ingénieurs utilisent un modèle standard appelé l'<strong>ellipsoïde de référence WGS84</strong> (World Geodetic System 1984).</p>
+
+<p>Ses paramètres clés sont :
+<ul><li><strong>Rayon équatorial</strong> <span class="math-inline">\(a = 6378.137\)</span> km</li>
+<li><strong>Rayon polaire</strong> <span class="math-inline">\(b = 6356.752\)</span> km</li>
+<li><strong>Aplatissement</strong> <span class="math-inline">\(f = (a - b) / a \approx 0.003353\)</span></li>
+</ul>
+Cela signifie que le rayon équatorial est d'environ 21 km plus grand que le rayon polaire. Ce n'est pas énorme, mais c'est suffisant pour affecter les calculs de trajectoires orbites.</p>
+
+<h3>Coordonnées géodésiques</h3>
+
+<p>Avec l'ellipsoïde WGS84, un point à la surface terrestre est décrit par trois coordonnées :
+<ul><li><strong>φ</strong> (phi) : latitude géodésique</li>
+<li><strong>λ</strong> (lambda) : longitude</li>
+<li><strong>h</strong> : altitude (hauteur au-dessus de l'ellipsoïde)</li>
+</ul>
+La transformation entre les coordonnées géodésiques et les coordonnées cartésiennes ECEF (Earth-Centered, Earth-Fixed) est plus complexe qu'avec une sphère :</p>
+
+<div class="math-block">\[
+<p>\begin{align}
+x &= (N(\phi) + h) \cos\phi \cos\lambda \\
+y &= (N(\phi) + h) \cos\phi \sin\lambda \\
+z &= (N(\phi) (1 - e^2) + h) \sin\phi
+\end{align}
+\]</div></p>
+
+<p>Où <span class="math-inline">\(N(\phi) = \frac{a}{\sqrt{1 - e^2 \sin^2\phi}}\)</span> est le <strong>rayon de courbure</strong>, et <span class="math-inline">\(e^2 = 2f - f^2\)</span> est l'excentricité au carré.</p>
+
+<h3>🌍 Exemple Concret : Calcul d'Altitude Géodésique</h3>
+
+<strong>Données :</strong>
+<ul><li>Latitude : φ = 45° (Paris)</li>
+<li>Longitude : λ = 2.35° (Paris)</li>
+<li>Altitude ellipsoïdale : h = 0 m (niveau mer)</li>
+</ul>
+<strong>Calcul du rayon de courbure N(φ) :</strong>
+<ul><li>a = 6378.137 km (rayon équatorial)</li>
+<li>e² = 0.00669438 (excentricité carrée)</li>
+<li>φ = 45° = π/4 radians</li>
+</ul>
+<div class="math-block">\[
+<p>N(\phi) = \frac{6378.137}{\sqrt{1 - 0.00669438 \sin^2(45°)}} = \frac{6378.137}{\sqrt{1 - 0.00669438 \times 0.5}} = \frac{6378.137}{\sqrt{1 - 0.00334719}} = \frac{6378.137}{\sqrt{0.99665281}} \approx \frac{6378.137}{0.998325} \approx 6388.8 \text{ km}
+\]</div></p>
+
+<strong>Coordonnées cartésiennes :</strong>
+<div class="math-block">\[
+<p>\begin{align}
+x &= (6388.8 + 0) \cos(45°) \cos(2.35°) \approx 6388.8 \times 0.707 \times 0.999 \approx 4518 \text{ km} \\
+y &= (6388.8 + 0) \cos(45°) \sin(2.35°) \approx 6388.8 \times 0.707 \times 0.041 \approx 185 \text{ km} \\
+z &= (6388.8 \times (1 - 0.00669438) + 0) \sin(45°) \approx 6388.8 \times 0.9933 \times 0.707 \approx 4485 \text{ km}
+\end{align}
+\]</div></p>
+
+<strong>Interprétation :</strong> Ces coordonnées placent Paris dans le système de référence terrestre centré.
+
+<h3>📐 Activité 1 : Conversion de Coordonnées (Niveau Intermédiaire)</h3>
+
+<strong>Objectif :</strong> Pratiquer la conversion entre systèmes de coordonnées
+
+<strong>Exercice 1 : Sphérique → Cartésien</strong>
+<p>Point : r = 6371 km, θ = 30°, φ = 45°
+Calculez x, y, z.</p>
+
+<strong>Exercice 2 : Géodésique → Cartésien</strong>
+<p>Point : φ = 0° (équateur), λ = 0° (Greenwich), h = 100 km
+Calculez x, y, z.</p>
+
+<strong>Exercice 3 : Comparaison</strong>
+<p>Quelle est la différence de distance au centre entre :
+<ul><li>Un point à l'équateur (h = 0)</li>
+<li>Un point au pôle nord (h = 0)</li>
+<li>Expliquez pourquoi.</li>
+</ul>
+💡 <strong>Conseil : Ordre des opérations</strong>
+<blockquote>Toujours convertir en radians d'abord ! Les fonctions trigonométriques des langages de programmation utilisent des radians, pas des degrés.</blockquote>
+
+<h3>4.2 Calculs de correction dus à la rotation terrestre</h3>
+
+<h4>La Terre tourne</h4>
+
+Lorsqu'on calcule une trajectoire spatiale, il faut choisir un système de référence. Il existe deux choix naturels :</p>
+
+<p>1. <strong>Référentiel inertiel</strong> : fixe par rapport aux étoiles (ne tourne pas avec la Terre)
+2. <strong>Référentiel terrestre</strong> : fixé à la Terre et tournant avec elle</p>
+
+<p>Pour les calculs de trajectoire, les équations de mouvement sont plus simples dans le référentiel inertiel. Mais les paramètres géographiques (latitude, longitude) sont définis dans le référentiel terrestre.</p>
+
+<h4>Conversion entre référentiels</h4>
+
+<p>La Terre effectue une rotation complète en 1 jour sidéral = 86164.0905 secondes.</p>
+
+<p>La vitesse angulaire est donc :</p>
+
+<div class="math-block">\[
+<p>\omega_\oplus = \frac{2\pi}{86164.0905 \text{ s}} = 7.292115 \times 10^{-5} \text{ rad/s}
+\]</div></p>
+
+<p>Lorsqu'on passe d'un référentiel à l'autre, on doit appliquer une rotation de l'angle <span class="math-inline">\(\theta = \omega_\oplus \cdot t\)</span> autour de l'axe polaire.</p>
+
+<h4>L'effet Coriolis</h4>
+
+<p>Dans le référentiel tournant de la Terre, il existe une <strong>force fictive</strong> appelée la <strong>force de Coriolis</strong> :</p>
+
+<div class="math-block">\[
+<p>\vec{F}_{\text{Coriolis}} = -2m \vec{\omega}_\oplus \times \vec{v}
+\]</div></p>
+
+<p>Pour une trajectoire de vol suborbital, cet effet est généralement petit mais mesurable. Katherine Johnson devait le considérer dans ses calculs.</p>
+
+<h3>🌪️ Exemple Numérique : Effet Coriolis sur Shepard</h3>
+
+<strong>Contexte :</strong> Mission Mercury-Redstone 3, lancement depuis Cap Canaveral (φ = 28.5°)
+
+<strong>Paramètres :</strong>
+<ul><li>ω_⊕ = 7.292 × 10⁻⁵ rad/s (vitesse angulaire terrestre)</li>
+<li>v = 2.6 km/s (vitesse maximale de Shepard)</li>
+<li>φ = 28.5° (latitude de lancement)</li>
+</ul>
+<strong>Calcul de la force de Coriolis :</strong>
+<div class="math-block">\[
+<p>F_{\text{Coriolis}} = 2m \omega_\oplus v \sin\phi
+\]</div></p>
+
+<div class="math-block">\[
+<p>\sin(28.5°) = 0.478
+\]</div></p>
+
+<div class="math-block">\[
+<p>F_{\text{Coriolis}} = 2 \times m \times 7.292 \times 10^{-5} \times 2600 \times 0.478 \approx 4.6 \times 10^{-2} m \text{ N}
+\]</div></p>
+
+<strong>Impact sur la trajectoire :</strong>
+<ul><li>Déviation latérale d'environ 0.5 km sur la portée de 486 km</li>
+<li>Nécessite correction dans les calculs de point d'atterrissage</li>
+</ul>
+<h3>📊 Schéma : Effets de la Rotation Terrestre</h3>
+
+<p>```
+EFFETS DE LA ROTATION TERRESTRE
+        │
+        ▼
+   ┌────┴────┐
+   │         │
+CENTRI-     │ CORIOLIS
+FUGE        │
+   │         │
+   ▼         ▼
+Accélération  Force apparente
+centrifuge    qui dévie les
+(radiale)     objets en
+              mouvement</p>
+
+<p>EXEMPLE : MISSILE BALISTIQUE
+├── Sans Coriolis : Trajectoire symétrique
+├── Avec Coriolis : Déviation vers l'est (hémisphère nord)
+└── Impact : Correction de 0.1-1° dans l'azimut de lancement
+```
+
+<strong>Pourquoi important :</strong> La Terre tourne sous le missile pendant son vol, changeant le point de référence.
+
+<h3>🧮 Activité 2 : Calculs de Rotation (Niveau Avancé)</h3>
+
+<strong>Objectif :</strong> Calculer l'impact de la rotation terrestre sur une trajectoire
+
+<strong>Problème :</strong> Un missile lancé verticalement à Paris (φ = 48.8°N) atteint 1000 km d'altitude en 5 minutes.
+
+<strong>Questions :</strong>
+1. De combien la Terre a-t-elle tourné pendant ce temps ?
+2. Quelle distance latérale cela représente-t-il ?
+3. Comment corriger la trajectoire de rentrée ?</p>
+
+<strong>Données utiles :</strong>
+<ul><li>Circonférence terrestre : 40,075 km</li>
+<li>Période de rotation : 24 heures = 86,400 secondes</li>
+</ul>
+<p>⚠️ <strong>Attention : Direction de la Coriolis</strong>
+<blockquote>Dans l'hémisphère nord, la force de Coriolis dévie vers la droite par rapport au mouvement. Dans l'hémisphère sud, c'est vers la gauche. Aux pôles, elle est nulle ; à l'équateur, elle est maximale.</blockquote>
+
+<h3>4.3 Effets relativistes et précision des trajectoires</h3>
+
+<h4>La relativité générale</h4>
+
+Vous vous demandez peut-être : est-ce qu'on doit considérer la <strong>relativité générale</strong> pour les trajectoires spatiales ?</p>
+
+<strong>Techniquement, oui. Pratiquement, c'est plus subtil.</strong>
+
+<p>La relativité générale dit que la gravité n'est pas une force, mais une courbure de l'espace-temps. Pour les applications pratiques de la NASA dans les années 1960, l'effet relativiste était déjà mesurable, mais très petit.</p>
+
+<h4>Corrections relativistes</h4>
+
+<p>Le principal effet relativiste pour une orbite terrestre basse est l'<strong>aberration relativiste</strong> et la <strong>correction de temps</strong>. Mais les plus importants effets étaient dus à des facteurs classiques négligés, comme :</p>
+
+<p>1. <strong>Le potentiel gravitationnel non-sphérique</strong> : la Terre n'a pas une distribution de masse uniforme
+2. <strong>Les marées lunaires et solaires</strong> : autres corps célestes génèrent des forces perturbatrices
+3. <strong>La pression de radiation solaire</strong> : pour les engins spatiaux légers
+4. <strong>La traînée atmosphérique</strong> : pour les orbites basses</p>
+
+<h4>L'exemple de John Glenn</h4>
+
+<p>Pour la mission de John Glenn en 1962 (que nous couvrirons au Chapitre 5), ces corrections étaient <strong>cruciales</strong>. Glenn orbiterait à une altitude d'environ 260 km, où la traînée atmosphérique était mesurable.</p>
+
+<p>Les corrections dues à la traînée atmosphérique, au non-sphéricité de la Terre, et aux marées devaient être incluses dans les calculs de trajectoire pour prédire correctement :
+<ul><li>La durée de chaque orbite</li>
+<li>Le point d'amarrissage après que la capsule amorce sa descente</li>
+<li>La vitesse de rentrée</li>
+</ul>
+<h3>⚛️ Exemple : Corrections Relativistes pour GPS</h3>
+
+<strong>Contexte :</strong> Les satellites GPS orbitent à 20,200 km d'altitude
+
+<strong>Effets relativistes principaux :</strong>
+1. <strong>Dilatation temporelle</strong> (effet gravitationnel) : Δt/t ≈ -GM/(c²r) ≈ -4.5 × 10⁻¹⁰
+2. <strong>Effet de vitesse</strong> (relativité restreinte) : Δt/t ≈ -v²/(2c²) ≈ -7.8 × 10⁻¹¹</p>
+
+<strong>Impact total :</strong> Les horloges des satellites avancent d'environ 38 microsecondes par jour !
+
+<strong>Conséquence :</strong> Sans correction relativiste, le GPS aurait une erreur de position de 10 km par jour.
+
+<h3>📈 Diagramme : Hiérarchie des Corrections</h3>
+
+<p>```
+CORRECTIONS DE TRAJECTOIRE
+        │
+        ▼
+   ┌────┴────┐
+   │         │
+BASIQUE     │ AVANCÉ
+(sphère)    │ (ellipsoïde)
+   │         │
+   ▼         ▼
+Gravité      Rotation terrestre
+uniforme      Coriolis
+   │         │
+   ▼         ▼
+   ┌────┴────┴────┐
+   │             │
+MODERNE        │ ULTRA-PRÉCIS
+(géoïde)       │ (relativité)
+   │             │
+   ▼             ▼
+Marées          Effets quantiques
+Atmosphère      Théorie des cordes
+résiduelle      (futur)
+```
+
+<strong>Leçon :</strong> Chaque niveau de précision révèle de nouveaux effets qui étaient auparavant négligeables.
+
+<h3>🔬 Activité 3 : Évaluation des Corrections (Niveau Expert)</h3>
+
+<strong>Objectif :</strong> Hiérarchiser l'importance des corrections selon le type de mission
+
+| Correction | Impact Suborbital | Impact Orbital LEO | Impact Géostationnaire |
+|------------|-------------------|-------------------|----------------------|
+| <strong>Aplatissement</strong> | Faible (±100m) | Moyen (±1km) | Important (±10km) |
+| <strong>Coriolis</strong> | Moyen (±500m) | Faible (±100m) | Négligeable |
+| <strong>Atmosphère</strong> | Crucial (±50km) | Important (±5km) | Négligeable |
+| <strong>Marées</strong> | Faible | Moyen (±500m) | Important (±2km) |
+| <strong>Relativité</strong> | Négligeable | Faible (±10m) | Moyen (±100m) |</p>
+
+<strong>Discussion :</strong>
+<p>1. Pourquoi les corrections atmosphériques sont-elles cruciales pour les missions suborbitales ?
+2. Quelles corrections deviennent importantes pour les missions interplanétaires ?
+3. Comment Katherine Johnson priorisait-elle ces corrections dans ses calculs ?</p>
+
+<p>✓ <strong>Bonne Pratique : Approche Hiérarchique</strong>
+<blockquote>Commencez toujours par les corrections les plus importantes pour votre mission, puis ajoutez les effets secondaires. Cette approche "par couches" permet de contrôler la précision tout en gérant la complexité.</blockquote>
+
+<h3>Résumé des corrections nécessaires</h3>
+
+Pour un calcul de trajectoire vraiment précis, Katherine Johnson devait tenir compte de :</p>
+
+<p>| Facteur | Magnitude | Importance |
+|---------|-----------|-----------|
+| Non-sphéricité terrestre | ~21 km d'aplatissement | Haute |
+| Rotation terrestre | 1 rotation par jour | Haute |
+| Traînée atmosphérique | Varie avec altitude | Moyenne-Haute |
+| Marées lunaires | ~0.3 m/s² à ~60000 km | Basse (pour LEO) |
+| Effets relativistes | ~10 mm/jour pour LEO | Très basse |
+| Pression de radiation solaire | ~10⁻⁶ m/s² | Très basse |</p>
+
+<p>Pour une mission suborbitalecourte (Shepard), les facteurs "Haute" étaient essentiels.
+Pour une mission orbitale (Glenn), tous les facteurs "Haute" et "Moyenne" étaient nécessaires.</p>
+
+<h2>📚 Synthèse et Évaluation du Chapitre 4</h2>
+
+<h3>🎯 Points Clés Acquis</h3>
+
+<p>1. <strong>Forme terrestre</strong> : La Terre n'est pas sphérique mais ellipsoïdale, nécessitant le modèle WGS84
+2. <strong>Systèmes de coordonnées</strong> : Multiples systèmes (cartésien, sphérique, orbital, géodésique) pour différents usages
+3. <strong>Rotation terrestre</strong> : Effets Coriolis et centrifuge qui déforment les trajectoires
+4. <strong>Corrections physiques</strong> : Atmosphère, marées, relativité ajoutent de la précision
+5. <strong>Approche hiérarchique</strong> : Différents niveaux de précision selon les besoins de mission</p>
+
+<h3>📊 Évaluation par Niveau</h3>
+
+<h4><strong>Niveau Débutant</strong> (Acquisition des bases)</h4>
+<ul><li><strong>Objectif atteint</strong> : Comprendre que l'espace n'est pas vide et uniforme</li>
+<li><strong>Compétences développées</strong> : Notion de corrections géophysiques, systèmes de coordonnées</li>
+<li><strong>Évaluation</strong> : Capacité à expliquer pourquoi la Terre n'est pas sphérique</li>
+</ul>
+<h4><strong>Niveau Intermédiaire</strong> (Analyse technique)</h4>
+<ul><li><strong>Objectif atteint</strong> : Appliquer les corrections de base aux calculs de trajectoire</li>
+<li><strong>Compétences développées</strong> : Conversion de coordonnées, évaluation d'effets dynamiques</li>
+<li><strong>Évaluation</strong> : Capacité à calculer l'impact de la rotation terrestre sur une trajectoire</li>
+</ul>
+<h4><strong>Niveau Avancé</strong> (Maîtrise experte)</h4>
+<ul><li><strong>Objectif atteint</strong> : Hiérarchiser et appliquer les corrections selon le contexte</li>
+<li><strong>Compétences développées</strong> : Analyse critique des approximations, optimisation de précision</li>
+<li><strong>Évaluation</strong> : Capacité à concevoir un modèle de trajectoire incluant toutes les corrections pertinentes</li>
+</ul>
+<h3>🧩 Exercices Progressifs</h3>
+
+<h4><strong>Exercice 1 : Coordonnées de Base (Débutant)</strong></h4>
+<p>Convertissez les coordonnées sphériques suivantes en cartésiennes :
+<ul><li>Point A : r = 6371 km, θ = 90°, φ = 0°</li>
+<li>Point B : r = 6671 km, θ = 45°, φ = 90°</li>
+</ul>
+<h4><strong>Exercice 2 : Effets de Rotation (Intermédiaire)</strong></h4>
+Un satellite en orbite circulaire à 600 km d'altitude passe au-dessus de l'équateur à vitesse 7.5 km/s.
+Calculez l'effet Coriolis maximal en magnitude et direction.</p>
+
+<h4><strong>Exercice 3 : Hiérarchie de Corrections (Avancé)</strong></h4>
+<p>Pour une mission de satellite géostationnaire, listez et justifiez l'ordre d'importance des corrections suivantes :
+<ul><li>Aplatissement terrestre</li>
+<li>Marées lunaires</li>
+<li>Atmosphère résiduelle</li>
+<li>Effets relativistes</li>
+</ul>
+<h3>🔍 Questions d'Auto-Évaluation</h3>
+
+<strong>Après avoir lu ce chapitre, pouvez-vous :</strong>
+1. Expliquer pourquoi nous utilisons l'ellipsoïde WGS84 plutôt qu'une sphère ?
+2. Décrire les différences entre les systèmes de coordonnées cartésien, sphérique et géodésique ?
+3. Calculer l'impact de l'effet Coriolis sur une trajectoire balistique ?
+4. Hiérarchiser les corrections physiques selon leur importance pour différents types de mission ?
+5. Expliquer pourquoi la relativité générale affecte les horloges des satellites GPS ?</p>
+
+<h3>📈 Indicateurs de Maîtrise</h3>
+
+<ul><li><strong>Niveau 1</strong> : Vous comprenez que l'espace nécessite des corrections complexes</li>
+<li><strong>Niveau 2</strong> : Vous pouvez appliquer les corrections de base aux calculs</li>
+<li><strong>Niveau 3</strong> : Vous maîtrisez l'approche hiérarchique pour optimiser la précision</li>
+</ul>
+<h3>🔗 Références Croisées</h3>
+
+<ul><li><strong>Chapitre 2</strong> : Fondements mathématiques utilisés ici</li>
+<li><strong>Chapitre 3</strong> : Corrections appliquées aux trajectoires suborbitales</li>
+<li><strong>Chapitre 5</strong> : Corrections cruciales pour Glenn (atmosphère + rotation)</li>
+<li><strong>Chapitre 6</strong> : Extensions aux distances lunaires</li>
+<li><strong>Chapitre 7</strong> : Corrections essentielles pour la rentrée atmosphérique</li>
+</ul>
+<p>---</p>
+
+<strong>Résumé du Chapitre 4</strong>
+
+<p>La géométrie de l'espace révèle que le "vide" spatial est en réalité un environnement complexe régi par :
+<ul><li>Une Terre non sphérique (ellipsoïde WGS84)</li>
+<li>Des systèmes de coordonnées multiples pour différents besoins</li>
+<li>Des effets dynamiques (rotation, Coriolis, relativité)</li>
+<li>Une hiérarchie de corrections selon la précision requise</li>
+</ul>
+Katherine Johnson maîtrisait ces subtilités pour assurer la précision des trajectoires spatiales.</p>
+
+<p>---</p>
+
+<strong>Lectures complémentaires</strong> :
+<ul><li>NIMA Technical Report TR8350.2 (WGS84 Standard)</li>
+<li>Vallado et al., <em>Fundamentals of Astrodynamics and Applications</em></li>
+</ul>
+<em>"La géométrie du monde réel était bien plus complexe que les équations de nos manuels." — Katherine Johnson</em>
+
+        </article>
+    </main>
+</body>
+</html>

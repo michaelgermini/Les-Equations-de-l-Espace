@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapitre 6: Les mathématiques de la Lune - Les Équations de l'Espace</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <nav class="sidebar">
+<div class="logo">
+<h2>📖 Les Équations de l'Espace</h2>
+<p class="subtitle">L'Héritage de Katherine Johnson</p>
+</div>
+<ul class="menu">
+  <li><a href="index.html" >🏠 Introduction</a></li>
+  <li><a href="chapitre-1.html" >Chapitre 1: L'intelligence en orbite</a></li>
+  <li><a href="chapitre-2.html" >Chapitre 2: Le langage des trajectoires</a></li>
+  <li><a href="chapitre-3.html" >Chapitre 3: Le calcul du vol suborbital</a></li>
+  <li><a href="chapitre-4.html" >Chapitre 4: La géométrie de l'espace</a></li>
+  <li><a href="chapitre-5.html" >Chapitre 5: Le vol orbital de John Glenn</a></li>
+  <li><a href="chapitre-6.html" class="active">Chapitre 6: Les mathématiques de la Lune</a></li>
+  <li><a href="chapitre-7.html" >Chapitre 7: Les équations du retour sur Terre</a></li>
+  <li><a href="chapitre-8.html" >Chapitre 8: De la feuille au cosmos</a></li>
+  <li><a href="chapitre-9.html" >Chapitre 9: Héritage et transmission</a></li>
+  <li><a href="annexes.html" >📚 Annexes</a></li>
+  <li><a href="formules.html" >📐 Formules et Calculs</a></li>
+</ul>
+<div class="footer">
+<p>© 2025 Michael Germini</p>
+<p><a href="https://github.com/michaelgermini/Les-Equations-de-l-Espace" target="_blank">GitHub</a></p>
+</div>
+</nav>
+
+    <main class="content">
+        <article>
+            <h1>Chapitre 6 : Les mathématiques de la Lune</h1>
+
+<h2>🎯 Vue d'Ensemble du Chapitre</h2>
+
+<p>Ce chapitre explore les mathématiques complexes des missions lunaires, de l'insertion dans la trajectoire lunaire jusqu'au retour sur Terre. Nous découvrons comment les calculs deviennent exponentiellement plus difficiles quand on sort de l'orbite terrestre.</p>
+
+<strong>Objectifs d'apprentissage :</strong>
+<ul><li>Comprendre les transferts orbitaux Terre-Lune (trajectoires de Hohmann)</li>
+<li>Maîtriser les calculs d'impulsion et de timing pour les missions spatiales</li>
+<li>Analyser les défis des voyages interplanétaires</li>
+<li>Évaluer l'importance de la précision dans les missions lunaires</li>
+</ul>
+<strong>Points clés :</strong>
+<p>1. Trajectoires de Hohmann et variantes
+2. Calculs d'impulsion (Δv)
+3. Dynamique à trois corps (Terre-Lune-Vaisseau)
+4. Précision temporelle et énergétique</p>
+
+<p>---</p>
+
+<h2>🧠 Carte Mentale : Mathématiques Lunaires</h2>
+
+<p>```
+MATHÉMATIQUES DE LA LUNE
+├── 🚀 INSERTION LUNAIRE
+│   ├── Orbite de stationnement terrestre
+│   ├── Calcul Δv pour transfert
+│   ├── Fenêtre de lancement optimale
+│   └── Trajectoire balistique initiale
+├── 🌓 TRANSFERTS ORBITAUX
+│   ├── Trajectoire de Hohmann classique
+│   │   ├── Demi-grand axe de transfert
+│   │   ├── Vitesses aux points de transfert
+│   │   └── Temps de transit (3 jours)
+│   ├── Variantes optimisées
+│   │   ├── Trajectoires plus rapides
+│   │   ├── Transferts à économie d'énergie
+│   │   └── Corrections en cours de route
+│   └── Dynamique à trois corps
+│       ├── Influence gravitationnelle Lune
+│       ├── Perturbations orbitales
+│       └── Corrections de trajectoire
+└── 🌍 RETOUR VERS LA TERRE
+    ├── Insertion en orbite lunaire
+    ├── Calcul du retour (Δv lunaire)
+    ├── Rentrée atmosphérique terrestre
+    └── Précision d'amerrissage
+```
+
+<strong>Légende :</strong> 🔵 Concepts fondamentaux | 🟡 Calculs complexes | 🟢 Applications pratiques
+
+---</p>
+
+<h2>📊 Classification : Types de Trajectoires Lunaire</h2>
+
+<p>| Type de Trajectoire | Temps de Transit | Δv Total (km/s) | Avantages | Inconvénients | Exemples |
+|---------------------|------------------|----------------|-----------|---------------|----------|
+| <strong>Hohmann classique</strong> | 3 jours | ~3.2 | Économe en énergie | Lent, sensible aux erreurs | Apollo 8, 10, 11 |
+| <strong>Transfert rapide</strong> | 2-2.5 jours | ~3.5-4.0 | Plus rapide | Consomme plus de carburant | Soyouz lunaire |
+| <strong>Transfert direct</strong> | 1-2 jours | ~4.5+ | Très rapide | Très énergivore | Missions d'urgence |
+| <strong>Transfert libre-retour</strong> | Variable | ~3.0 | Sécurité assurée | Limité à certaines fenêtres | Apollo 13 (planifié) |
+| <strong>Transfert bi-elliptique</strong> | 3.5-4 jours | ~3.1 | Parfois plus efficace | Plus complexe | Optimisations modernes |</p>
+
+<h2>6.1 Les équations d'insertion lunaire</h2>
+
+<h3>🌙 Exemple Concret : Calcul pour Apollo 11</h3>
+
+<strong>Données de mission :</strong>
+<ul><li>Orbite terrestre : 190 km d'altitude (rayon = 6571 km)</li>
+<li>Distance Terre-Lune : 384,400 km (moyenne)</li>
+<li>Vitesse orbitale terrestre : 7.79 km/s</li>
+<li>Masse de la Lune : 7.34 × 10²² kg</li>
+</ul>
+<strong>Étape 1 : Calcul de la vitesse de transfert requise</strong>
+<p>La vitesse pour atteindre la Lune depuis l'orbite terrestre :</p>
+
+<div class="math-block">\[
+<p>v_{\text{transfert}} = \sqrt{GM_{\oplus} \left( \frac{2}{r_{\oplus}} - \frac{1}{a_t} \right)}
+\]</div></p>
+
+<p>Où :
+<ul><li><span class="math-inline">\(r_{\oplus} = 6571\)</span> km (rayon orbite terrestre)</li>
+<li><span class="math-inline">\(a_t = \frac{r_{\oplus} + r_{\text{Lune}}}{2} = \frac{6571 + 384400}{2} = 195485.5\)</span> km</li>
+</ul>
+<div class="math-block">\[
+v_{\text{transfert}} = \sqrt{3.986 \times 10^{14} \left( \frac{2}{6.571 \times 10^6} - \frac{1}{1.954855 \times 10^8} \right)} = 10.84 \text{ km/s}
+\]</div></p>
+
+<strong>Étape 2 : Calcul du Δv requis</strong>
+<div class="math-block">\[
+<p>\Delta v = v_{\text{transfert}} - v_{\text{orbitale}} = 10.84 - 7.79 = 3.05 \text{ km/s}
+\]</div></p>
+
+<strong>Étape 3 : Temps de transit (loi de Kepler)</strong>
+<div class="math-block">\[
+<p>T = \pi \sqrt{\frac{a_t^3}{GM_{\oplus}}} = 3.1416 \times \sqrt{\frac{(1.954855 \times 10^8)^3}{3.986 \times 10^{14}}} = 2,592,000 \text{ s} \approx 3.0 \text{ jours}
+\]</div></p>
+
+<h3>📈 Schéma : Profil de Vitesse Apollo</h3>
+
+<p>```
+PROFIL DE VITESSE APOLLO 11
+     │
+12.0 │                ┌── Décollage Terre
+     │               /
+11.0 │              ├─ Insertion orbite terrestre
+     │             /
+10.0 │            ├─ Transfert vers Lune (vitesse max)
+     │           /
+ 9.0 │          ├─ Arrivée Lune
+     │         /
+ 8.0 │        ├─ Insertion orbite lunaire
+     │       /
+ 7.0 │      ├─ Décollage Lune
+     │     /
+ 6.0 │    ├─ Transfert vers Terre
+     │   /
+ 5.0 │  ├─ Rentrée atmosphère
+     │ /
+ 4.0 │ ├─ Amerrissage
+     │
+     └─────────────────────────
+       Décollage  Insertion   Arrivée   Décollage  Rentrée
+       Terre      transfert   Lune      Lune       Terre
+```
+
+<strong>Analyse :</strong> 5 changements majeurs de vitesse, total Δv ≈ 6.5 km/s pour mission aller-retour.
+
+<h3>🧮 Activité 1 : Calcul de Fenêtre de Lancement (Niveau Intermédiaire)</h3>
+
+<strong>Objectif :</strong> Comprendre les contraintes temporelles des missions lunaires
+
+<strong>Problème :</strong> La Lune s'éloigne de la Terre à une vitesse d'environ 1 km/s. Calculez combien de temps une fenêtre de lancement reste ouverte.
+
+<strong>Données :</strong>
+<ul><li>Distance Terre-Lune : 384,400 km</li>
+<li>Vitesse orbitale de la Lune autour de la Terre : ~1.02 km/s</li>
+<li>Tolérance de précision : ±50 km sur le point d'insertion lunaire</li>
+</ul>
+<strong>Calcul :</strong>
+1. Temps pour que la Lune se déplace de 50 km : t = distance/vitesse = 50/1.02 ≈ 49 secondes
+2. Fenêtre de lancement : ±24.5 secondes autour du moment optimal</p>
+
+<strong>Discussion :</strong>
+<ul><li>Pourquoi les lancements lunaires doivent être si précis ?</li>
+<li>Quels facteurs limitent la taille de la fenêtre de lancement ?</li>
+<li>Comment les ingénieurs compensent-ils les imprécisions ?</li>
+</ul>
+<p>💡 <strong>Conseil : Synchronisation Orbitale</strong>
+<blockquote>Les missions lunaires doivent synchroniser trois orbites : vaisseau autour de Terre, Lune autour de Terre, et vaisseau autour de Lune. Cette "danse cosmique" nécessite une précision de l'ordre de la seconde.</blockquote>
+
+<h3>Du chemin terrestre vers la Lune</h3>
+
+Une mission lunaire est exponentiellement plus complexe qu'une orbite terrestre. Non seulement la capsule doit quitter l'orbite terrestre, mais elle doit le faire avec une trajectoire très précise pour :
+1. Quitter l'orbite terrestre
+2. Traverser l'espace interplanétaire
+3. Entrer en orbite lunaire
+4. Revenir à la Terre</p>
+
+<h3>🏞️ Activité 2 : Orbite de Stationnement (Niveau Débutant)</h3>
+
+<strong>Objectif :</strong> Comprendre l'importance de l'orbite de parking dans les missions lunaires
+
+<strong>Calcul simple :</strong>
+<p>Une orbite circulaire à 190 km d'altitude a un rayon de 6,571 km. Calculez la vitesse orbitale.</p>
+
+<strong>Formule :</strong>
+<div class="math-block">\[
+<p>v = \sqrt{\frac{GM}{r}} = \sqrt{\frac{3.986 \times 10^{14}}{6.571 \times 10^6}} = 7.79 \text{ km/s}
+\]</div></p>
+
+<strong>Questions :</strong>
+<p>1. Pourquoi utiliser une orbite de stationnement plutôt que lancer directement vers la Lune ?
+2. Quel avantage offre cette orbite pour les calculs de trajectoire ?
+3. Comment Katherine Johnson calculait-elle ces orbites de parking ?</p>
+
+<p>⚠️ <strong>Attention : Stabilité Orbitale</strong>
+<blockquote>Une orbite de stationnement n'est pas permanente. L'atmosphère résiduelle à 190 km cause une décélération lente (drag atmosphérique) qui nécessite des corrections périodiques.</blockquote>
+
+<h3>📊 Tableau : Comparaison Orbites de Stationnement</h3>
+
+| Altitude (km) | Rayon (km) | Vitesse (km/s) | Période (min) | Durée viable | Utilisation |
+|---------------|------------|----------------|---------------|--------------|-------------|
+| <strong>160</strong> | 6531 | 7.84 | 88.5 | 2-3 jours | Stationnement court |
+| <strong>190</strong> | 6571 | 7.79 | 90.2 | 1-2 semaines | Apollo standard |
+| <strong>300</strong> | 6681 | 7.73 | 92.6 | Plusieurs mois | Station spatiale |
+| <strong>400</strong> | 6781 | 7.67 | 94.7 | Années | Orbites opérationnelles |</p>
+
+<strong>Observation :</strong> Plus l'altitude est élevée, plus l'orbite est stable mais plus le Δv pour atteindre la Lune est important.
+
+<h3>🌙 Logique de Calcul Pas à Pas : Δv pour Transfert Lunaire</h3>
+
+<strong>Étape 1 : Définir les orbites</strong>
+<ul><li>Orbite initiale : r₁ = rayon orbite terrestre = 6,571 km</li>
+<li>Orbite finale : r₂ = distance Terre-Lune = 384,400 km</li>
+</ul>
+<strong>Étape 2 : Calculer le demi-grand axe de transfert</strong>
+<div class="math-block">\[
+<p>a_t = \frac{r_1 + r_2}{2} = \frac{6571 + 384400}{2} = 195,485.5 \text{ km}
+\]</div></p>
+
+<strong>Étape 3 : Vitesse à l'apogée (point de départ)</strong>
+<div class="math-block">\[
+<p>v_1 = \sqrt{GM \left( \frac{2}{r_1} - \frac{1}{a_t} \right)} = \sqrt{3.986e14 \left( \frac{2}{6571000} - \frac{1}{195485500} \right)} = 10.84 \text{ km/s}
+\]</div></p>
+
+<strong>Étape 4 : Vitesse orbitale actuelle</strong>
+<div class="math-block">\[
+<p>v_{\text{orbit}} = \sqrt{\frac{GM}{r_1}} = 7.79 \text{ km/s}
+\]</div></p>
+
+<strong>Étape 5 : Δv requis</strong>
+<div class="math-block">\[
+<p>\Delta v = v_1 - v_{\text{orbit}} = 10.84 - 7.79 = 3.05 \text{ km/s}
+\]</div></p>
+
+<strong>Étape 6 : Vérification énergétique</strong>
+<p>Cette impulsion correspond à environ 25 tonnes de carburant pour Apollo (masse ~45 tonnes).</p>
+
+<p>✓ <strong>Bonne Pratique : Vérification Croisée</strong>
+<blockquote>Katherine Johnson vérifiait toujours ses calculs Δv de trois manières différentes : algébrique, géométrique, et numérique. Cela réduisait les erreurs à moins de 0.01%.</blockquote>
+
+<h3>6.2 Les transferts orbitaux de Hohmann et leurs variantes</h3>
+
+<h4>La trajectoire de Hohmann classique</h4>
+
+En 1925, Walter Hohmann découvrit une trajectoire économe en énergie pour transférer entre deux orbites circulaires. Pour un transfert Terre-Lune :</p>
+
+<strong>Conditions</strong> :
+<ul><li>Orbite initiale autour de la Terre : rayon <span class="math-inline">\(r_1\)</span></li>
+<li>Orbite finale (orbite autour de la Lune) : rayon <span class="math-inline">\(r_2\)</span></li>
+<li>Orbite de transfert (ellipse) : périgée à <span class="math-inline">\(r_1\)</span>, apogée à <span class="math-inline">\(r_2\)</span></li>
+</ul>
+<strong>Les calculs</strong> :
+
+<p>Le demi-grand axe de l'ellipse de transfert est :</p>
+
+<div class="math-block">\[
+<p>a_t = \frac{r_1 + r_2}{2}
+\]</div></p>
+
+<p>Les vitesses requises aux deux points sont calculées par :</p>
+
+<div class="math-block">\[
+<p>v_1 = \sqrt{GM \left( \frac{2}{r_1} - \frac{1}{a_t} \right)}
+\]</div></p>
+
+<div class="math-block">\[
+<p>v_2 = \sqrt{GM \left( \frac{2}{r_2} - \frac{1}{a_t} \right)}
+\]</div></p>
+
+<p>Les impulsions (changements de vitesse) sont alors :</p>
+
+<div class="math-block">\[
+<p>\Delta v_1 = v_1 - v_{\text{orbital, 1}}
+\]</div></p>
+
+<div class="math-block">\[
+<p>\Delta v_2 = v_{\text{orbital, 2}} - v_2
+\]</div></p>
+
+<h4>Le temps de transfert</h4>
+
+<p>Le temps pour parcourir la trajectoire de Hohmann (demi-ellipse) est donné par la troisième loi de Kepler :</p>
+
+<div class="math-block">\[
+<p>T = \pi \sqrt{\frac{a_t^3}{GM}}
+\]</div></p>
+
+<p>Pour un transfert Terre-Lune, cela donne typiquement environ <strong>3 jours</strong>.</p>
+
+<h4>Variantes et optimisations</h4>
+
+<p>La trajectoire de Hohmann n'est pas toujours optimale pour les missions Apollo, car elle prend 3 jours. Les missions réelles utilisaient souvent des variantes :</p>
+
+<ul><li><strong>Trajectoires plus rapides</strong> : utiliser plus de carburant pour traverser en 2-2.5 jours</li>
+<li><strong>Trajectoires d'insertion directe</strong> : commencer la correction de cap dès le lancement, plutôt que depuis une orbite de stationnement</li>
+</ul>
+<p>Katherine Johnson et ses collègues devaient calculer ces variantes pour évaluer les compromis entre temps de vol et consommation de carburant.</p>
+
+<h3>6.3 Calcul du retour atmosphérique</h3>
+
+<h4>Les enjeux</h4>
+
+<p>Le retour depuis la Lune est plus complexe que l'insertion, car le vaisseau arrive à une vitesse très élevée — environ <strong>11 km/s</strong> — qui est beaucoup plus rapide que la vitesse orbitale terrestre (7.8 km/s).</p>
+
+<p>L'énergie cinétique qu'il faut dissiper est énorme :</p>
+
+<div class="math-block">\[
+<p>E_k = \frac{1}{2} m v^2 = \frac{1}{2} m (11 \text{ km/s})^2 = 60.5 \, m \, (\text{km/s})^2
+\]</div></p>
+
+<p>Comparé à une rentrée de capsule Mercury ou Gemini, qui arrivait à environ 8 km/s, cette énergie supplémentaire pose des défis thermiques et aérodynamiques majeurs.</p>
+
+<h4>Angle d'entrée optimal</h4>
+
+<p>L'angle avec lequel la capsule entre dans l'atmosphère est critique. Trop raide, et elle se désintègre sous la chaleur. Pas assez raide, et elle peut rebondir dans l'espace comme une pierre sur l'eau.</p>
+
+<p>L'angle d'entrée <span class="math-inline">\(\gamma\)</span> (gamma, mesuré par rapport à l'horizontale) doit généralement être entre <strong>-5°</strong> et <strong>-7°</strong> pour une rentrée Apollo.</p>
+
+<p>Le calcul de cet angle implique de résoudre des équations couplées :
+<ul><li>Équations du mouvement en 3D</li>
+<li>Modèle d'atmosphère varié</li>
+<li>Modèle de friction thermique</li>
+<li>Équations thermiques du bouclier thermique</li>
+</ul>
+<h4>Friction et perte d'énergie</h4>
+
+Une fois dans l'atmosphère, la capsule expérimente une force de traînée énorme. Cette traînée est modélisée par :</p>
+
+<div class="math-block">\[
+<p>F_{\text{drag}} = \frac{1}{2} \rho v^2 C_D A
+\]</div></p>
+
+<p>Où :
+<ul><li><span class="math-inline">\(\rho\)</span> est la densité de l'air (qui change rapidement avec l'altitude)</li>
+<li><span class="math-inline">\(v\)</span> est la vitesse</li>
+<li><span class="math-inline">\(C_D\)</span> est le coefficient de traînée (qui dépend de la forme et du flux)</li>
+<li><span class="math-inline">\(A\)</span> est la section transversale</li>
+</ul>
+La densité de l'air varie de façon exponentielle avec l'altitude (jusqu'à environ 80 km), puis à pente plus douce au-delà. Katherine Johnson devait utiliser des modèles d'atmosphère standard (comme le modèle COSPAR) et intégrer numériquement les équations du mouvement pour prédire :
+<ul><li>L'altitude et la vitesse à chaque instant</li>
+<li>La force g subie par l'astronaute</li>
+<li>La trajectoire finale</li>
+</ul>
+<h4>Dissipation de chaleur</h4>
+
+L'énergie cinétique énorme est convertie en chaleur à deux endroits :
+1. <strong>Sur le bouclier thermique</strong> : la plupart de l'énergie est dissipée ici
+2. <strong>Dans l'atmosphère</strong> : crée un plasma lumineux autour de la capsule</p>
+
+<p>Le calcul de la température du bouclier thermique requiert de résoudre l'équation de la chaleur en 3D, ce qui était au-delà des capacités computationnelles de l'époque. Pour ce qui était utilisable pour les missions Apollo, on employait des modèles simplifiés et semi-empiriques basés sur des tests d'hypersonique en laboratoire.</p>
+
+<h3>Résumé du Chapitre 6</h3>
+
+<ul><li>Les missions lunaires impliquent des transferts orbitaux complexes</li>
+<li>Les trajectoires de Hohmann sont les plus économes en énergie, mais pas toujours optimales</li>
+<li>Le retour atmosphérique est un défi thermique et aérodynamique majeur</li>
+<li>Le calcul de la trajectoire de retour implique intégration numérique complexe et modèles d'atmosphère</li>
+</ul>
+<h2>6.4 Références Croisées</h2>
+
+<ul><li><strong>Chapitre 2</strong> : Lois de Kepler appliquées aux transferts multi-corps</li>
+<li><strong>Chapitre 4</strong> : Corrections géophysiques étendues aux distances lunaires</li>
+<li><strong>Chapitre 5</strong> : Comparaison avec les orbites terrestres (complexité accrue)</li>
+<li><strong>Chapitre 7</strong> : Rentrée lunaire vs rentrée terrestre (vitesses plus élevées)</li>
+<li><strong>Chapitre 8</strong> : Katherine travaille sur ces calculs avec ordinateurs avancés</li>
+<li><strong>Annexes A.3</strong> : Dérivations des équations orbitales utilisées</li>
+</ul>
+<p>---</p>
+
+<strong>Lectures complémentaires</strong> :
+<ul><li>NASA Apollo Technical Documentation</li>
+<li>Vallado & Curtis, <em>Orbital Mechanics for Engineering Students</em> (Chapitre sur Hohmann transfers)</li>
+</ul>
+<em>"Les équations de retour étaient parmi les plus complexes que nous ayons jamais résolues. Une erreur signifiait que l'astronaute ne rentrerait pas vivant." — Katherine Johnson</em>
+
+        </article>
+    </main>
+</body>
+</html>
