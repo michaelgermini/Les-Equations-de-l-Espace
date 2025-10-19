@@ -72,15 +72,15 @@ Ce projet couvre:
 
 | Chapitre | Titre | Focus |
 |----------|-------|-------|
-| 1 | L'intelligence en orbite | Biographie et contexte historique |
-| 2 | Le langage des trajectoires | Fondements mathématiques orbitaux |
-| 3 | Le calcul du vol suborbital | Cas Alan Shepard |
-| 4 | La géométrie de l'espace | Modèles terrestres et corrections |
-| 5 | Le vol orbital de John Glenn | Calculs vérifiés manuellement |
-| 6 | Les mathématiques de la Lune | Transferts orbitaux et rentrée |
-| 7 | Les équations du retour sur Terre | Mécanique de rentrée atmosphérique |
-| 8 | De la feuille au cosmos | Outils et méthodes pédagogiques |
-| 9 | Héritage et transmission | Impact et relevance contemporaine |
+| 1 | [L'intelligence en orbite](Chapitre_1_Intelligence_en_orbite.md) | Biographie et contexte historique |
+| 2 | [Le langage des trajectoires](Chapitre_2_Langage_trajectoires.md) | Fondements mathématiques orbitaux |
+| 3 | [Le calcul du vol suborbital](Chapitre_3_Calcul_vol_suborbital.md) | Cas Alan Shepard |
+| 4 | [La géométrie de l'espace](Chapitre_4_Geometrie_espace.md) | Modèles terrestres et corrections |
+| 5 | [Le vol orbital de John Glenn](Chapitre_5_Vol_orbital_John_Glenn.md) | Calculs vérifiés manuellement |
+| 6 | [Les mathématiques de la Lune](Chapitre_6_Mathematiques_Lune.md) | Transferts orbitaux et rentrée |
+| 7 | [Les équations du retour sur Terre](Chapitre_7_Equations_retour_Terre.md) | Mécanique de rentrée atmosphérique |
+| 8 | [De la feuille au cosmos](Chapitre_8_Feuille_cosmos.md) | Outils et méthodes pédagogiques |
+| 9 | [Héritage et transmission](Chapitre_9_Heritage_transmission.md) | Impact et relevance contemporaine |
 
 ### 🔗 Ressources Complémentaires
 
