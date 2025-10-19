@@ -1,8 +1,6 @@
 # Les Équations de l'Espace
 ## L'Héritage mathématique de Katherine Johnson
 
-![Katherine Johnson](https://via.placeholder.com/300?text=Katherine+Johnson)
-
 ### 📚 Présentation du Projet
 
 Ce projet explore l'extraordinaire contribution de **Katherine Johnson** aux programmes spatiaux américains, notamment à travers les calculs mathématiques qui ont permis les premiers vols spatiaux habités.
