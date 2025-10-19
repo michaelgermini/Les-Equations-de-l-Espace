@@ -14,13 +14,34 @@ Ces trois lois sont **la fondation mathématique de tout calcul de trajectoire**
 
 #### Coordonnées cartésiennes (x, y, z)
 
-La façon la plus simple de localiser un point dans l'espace tridimensionnel est d'utiliser trois coordonnées orthogonales :
+La façon la plus simple de localiser un point dans l'espace tridimensionnel est d'utiliser trois coordonnées orthogonales. Le **vecteur position** \(\vec{r}\) d'un point \((x, y, z)\) peut s'écrire de plusieurs manières équivalentes :
 
+**Notation avec chapeau (hat notation)** :
 \[
 \vec{r} = x\hat{x} + y\hat{y} + z\hat{z}
 \]
 
-Où \(\hat{x}\), \(\hat{y}\), \(\hat{z}\) sont les vecteurs unitaires dans les trois directions perpendiculaires.
+**Notation classique** (très utilisée en physique) :
+\[
+\vec{r} = x\vec{i} + y\vec{j} + z\vec{k}
+\]
+
+**Notation avec indices** (courante en mécanique) :
+\[
+\vec{r} = x\vec{e}_x + y\vec{e}_y + z\vec{e}_z
+\]
+
+**Notation matricielle** (utile pour les calculs) :
+\[
+\vec{r} = \begin{pmatrix} x \\ y \\ z \end{pmatrix}
+\]
+
+> **Note** : Dans toutes ces notations, les vecteurs unitaires (\(\hat{x}, \hat{y}, \hat{z}\) ou \(\vec{i}, \vec{j}, \vec{k}\) ou \(\vec{e}_x, \vec{e}_y, \vec{e}_z\)) représentent les **vecteurs de base orthonormés** :
+> - Ils sont **perpendiculaires** entre eux (orthogonaux)
+> - Ils ont une **longueur unitaire** (norme = 1)
+> - Ils pointent le long des axes positifs x, y, et z respectivement
+
+**Interprétation physique** : L'équation \(\vec{r} = x\hat{x} + y\hat{y} + z\hat{z}\) indique que le vecteur position \(\vec{r}\) est composé d'une magnitude \(x\) dans la direction \(\hat{x}\), d'une magnitude \(y\) dans la direction \(\hat{y}\), et d'une magnitude \(z\) dans la direction \(\hat{z}\).
 
 Pour une orbite autour de la Terre, nous plaçons généralement l'origine au centre terrestre, l'axe \(z\) pointant vers le pôle nord, et l'axe \(x\) pointant vers un point de référence dans l'espace (par convention, l'équinoxe de printemps).
 
