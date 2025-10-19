@@ -98,8 +98,8 @@ Ce projet couvre:
 
 ---
 
-**Auteur**: [À adapter selon votre signature]
+**Auteur**: Michael Germini
 **Dernière mise à jour**: Octobre 2025
-**Licence**: [À adapter]
+**Licence**: MIT
 
 *"Nous avons tous un rôle à jouer à bord du vaisseau spatial Terre." — Katherine Johnson*
